@@ -1,0 +1,238 @@
+Stand Up Meeting: 20 May 2026
+
+1.Your Task for Yesterday
+
+-Was Module 7-9
+
+2.What You Managed to Complete
+
+-Modules 7 - 9
+
+3.Outstanding Work Items
+-Just the assignent we recieved today
+
+4.Your Blockers
+-I had no blockers
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+-To complete the assignment and also revise modules 8 and 9
+
+7.Questions
+-None.
+
+=======================================================================================================
+=======================================================================================================
+Stand Up Meeting: 21 May 2026
+
+1.Your Task for Yesterday
+
+-Revised module 8-9
+-Started the rough draft of the assignment in a Pseudo Code Manner
+
+2.What You Managed to Complete
+
+-Module 8 and 9 are done just need revision, in terms of autonomy.
+
+3.Outstanding Work Items
+-Just the assignent is the only outstanding tasks.
+
+4.Your Blockers
+-I had no blockers
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+-To complete the assignment.
+
+7.Questions
+-None.
+
+=======================================================================================================
+Stand Up Meeting: 22 May 2026
+
+1.Your Task for Yesterday
+
+-Revised module 8-9
+-Doing the rough draft of the assignment and starting the EmployeeClass and Login
+-Looking at the concepts of Assignment 2
+
+2.What You Managed to Complete
+
+-Rough Draft planning for Assignment 1.
+- EmployeeClass of the Assignment and it's contents
+
+3.Outstanding Work Items
+-Just the assignents 1 and 2 is the only outstanding tasks.
+
+4.Your Blockers
+-I had no blockers on the technical side.
+- I had a problem with linking data from the registration to verify on login
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+-To complete the assignment 1 and 2 over this weekend.
+
+7.Questions
+-AzureOps do we use our work emails and do we host our assignments as public or select people with in the organisation to use.
+- Can
+
+=======================================================================================================
+=======================================================================================================
+
+Stand Up Meeting: 25 May 2026
+
+1.Your Task for Yesterday
+
+-Finishing the EmployeeClass and Login Assignment 1
+-Looking at the concepts of Assignment 2
+
+2.What You Managed to Complete
+
+- Completed Assignment 1.
+- Assignment 2
+
+3.Outstanding Work Items
+- Just the assignent 2 is the only outstanding tasks.
+
+4.Your Blockers
+- My speakers don't work.
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+-To complete assignment 2 over today or this week.
+
+7.Questions
+- When are gonna do presentation for Assignment 2 and how much time will each person given.
+- Are we gonna present for assignment 1, if so when?? 
+
+=======================================================================================================
+=======================================================================================================
+
+Stand Up Meeting: 26 May 2026
+
+1.Your Task for Yesterday
+
+- Looking at the concepts of Assignment 2
+- Preparing myself to present assignment 1 and 2
+- Revised C# lessons
+
+2.What You Managed to Complete
+
+- Assignment 2
+
+3.Outstanding Work Items
+- Just the assignent 2 is the only outstanding task in terms of preparation for presentation.
+
+4.Your Blockers
+- My speakers don't work.
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+- To do assignment 3.
+- To review assignment 2 as well for improvements.
+
+7.Questions
+- None
+
+=======================================================================================================
+=======================================================================================================
+
+Stand Up Meeting: 27 May 2026
+
+1.Your Task for Yesterday
+
+- Starting rough draft of Assignment 3
+- Preparing myself to present assignment 1 and 2
+- Revised C# lessons
+
+2.What You Managed to Complete
+- Assignment 2
+
+3.Outstanding Work Items
+- Just the assignent 2 is the only outstanding task in terms of preparation for presentation.
+- Assignment 3
+
+4.Your Blockers
+- My speakers don't work.
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+- To do assignment 3.
+- To review assignment 2 as well for improvements.
+
+7.Questions
+- None
+
+=======================================================================================================
+
+
+Stand Up Meeting: 28 May 2026
+
+1.Your Task for Yesterday
+
+- Starting Assignment 3, the first class.
+- Preparing myself to present assignment 1 and 2
+- Revised C# lessons
+
+2.What You Managed to Complete
+- Submitted Assignment 2
+- Rough draft planning for assignment 3
+
+3.Outstanding Work Items
+- Just the assignents 1 and 2 is the only outstanding task in terms of preparation for presentation.
+- Assignment 3
+
+4.Your Blockers
+- My speakers don't work.
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To do assignment 3.
+
+7.Questions
+- None
+
+=======================================================================================================
+
+
+Stand Up Meeting: 29 May 2026
+
+1.Your Task for Yesterday
+
+- working on Assignment 3, and fixing errors where needed.
+- Preparing myself to present assignment 1 and 2
+
+2.What You Managed to Complete
+- nothing so far
+- Rough draft planning for assignment 3
+
+3.Outstanding Work Items
+- Just the assignents 1 and 2 is the only outstanding task in terms of preparation for presentation.
+- Assignment 3
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To work assignment 3.
+
+7.Questions
+- None
