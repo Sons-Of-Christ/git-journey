@@ -236,3 +236,33 @@ Stand Up Meeting: 29 May 2026
 
 7.Questions
 - None
+
+==============================================================================================================
+
+Stand Up Meeting: 01 June 2026
+
+1.Your Task for Yesterday
+
+- working on Assignment 3, and fixing errors where needed.
+- Preparing myself to present assignment 1 and 2
+
+2.What You Managed to Complete
+- There's 3 classes I need to do, I'm done with 2
+- Rough draft planning for assignment 3
+
+3.Outstanding Work Items
+- Just the assignents 1 and 2 is the only outstanding task in terms of preparation for presentation.
+- Assignment 3 the final class and testing if the program works
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To work assignment 3.
+
+7.Questions
+- None
