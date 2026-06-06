@@ -1,0 +1,30 @@
+//@version=5
+indicator("MTF Buyer/Seller Dominance (CVD)", overlay=false)
+
+// 1. Timeframe Filter Option
+// Allows you to lock the indicator to a specific timeframe (e.g., "60" for 1 hour, "D" for Daily)
+// Leaving it blank will default to the timeframe you are currently viewing.
+tf = input.timeframe("", title="Filter Timeframe (Leave blank for current chart)")
+
+// 2. Determine Buyer vs. Seller Strength (Delta)
+// If price closes above open, volume is assigned to buyers. If below, sellers.
+buyVolume = close > open ? volume : (close == open ? volume / 2 : 0)
+sellVolume = close < open ? volume : (close == open ? volume / 2 : 0)
+candleDelta = buyVolume - sellVolume
+
+// 3. Accumulate the Delta over time
+var float cumulativeDelta = 0.0
+cumulativeDelta := cumulativeDelta + candleDelta
+
+// 4. Fetch the data for the selected timeframe
+// This satisfies your requirement to filter timeframes in or out without changing your chart.
+mtf_CVD = request.security(syminfo.tickerid, tf, cumulativeDelta, gaps=barmerge.gaps_off, lookahead=barmerge.lookahead_off)
+
+// 5. Visual Representation
+// Green columns for increasing buyer strength, Red for increasing seller strength
+isBullish = mtf_CVD > mtf_CVD[1]
+plotColor = isBullish ? color.new(color.green, 40) : color.new(color.red, 40)
+
+// Draw the Histogram and the Trend Line
+plot(mtf_CVD, title="Volume Delta Histogram", color=plotColor, style=plot.style_columns)
+plot(mtf_CVD, title="Delta Trend Line", color=color.gray, linewidth=2)
