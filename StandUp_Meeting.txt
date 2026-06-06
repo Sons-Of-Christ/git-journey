@@ -266,3 +266,93 @@ Stand Up Meeting: 01 June 2026
 
 7.Questions
 - None
+
+==============================================================================================================
+
+Stand Up Meeting: 02 June 2026
+
+1.Your Task for Yesterday
+
+- working on Assignment 3, and fixing errors where needed.
+
+2.What You Managed to Complete
+- Assignment 3
+
+3.Outstanding Work Items
+- Assignment 3 the final class and testing if the program works
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To work assignment 3.
+
+7.Questions
+- None
+
+==============================================================================================================
+
+Stand Up Meeting: 04 June 2026
+
+1.Your Task for Yesterday
+
+- Researching on Testing Fundamentals and Types of Testing
+- STLC
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Researching TestCase Development
+- Testing Techniques
+- Test Management & Control
+
+7.Questions
+- None
+
+==============================================================================================================
+
+Stand Up Meeting: 05 June 2026
+
+1.Your Task for Yesterday
+
+- Researching on Testing Fundamentals and Types of Testing
+- Roles of Software testers and career fields
+- Researching TestCase Development
+- Testing Techniques
+- Test Management & Control
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- 7 Types of Software testing principles
+- V-Model testing
+- STLC and Zoho Bugtracker
+
+7.Questions
+- None
