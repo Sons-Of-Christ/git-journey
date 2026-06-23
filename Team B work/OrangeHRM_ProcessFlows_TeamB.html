@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>OrangeHRM Process Flow Diagrams — Team B</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --orange:    #E05A00;
+    --orange-lt: #FFF3EC;
+    --orange-md: #FF8133;
+    --dark:      #1A2233;
+    --mid:       #3E5771;
+    --muted:     #6B7A90;
+    --line:      #D8E2EE;
+    --bg:        #F5F7FA;
+    --white:     #FFFFFF;
+
+    --step-w: 200px;
+    --arrow: #9DB3C8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  /* ── COVER ───────────────────────────────────────────────────────── */
+  .cover {
+    background: var(--dark);
+    color: #fff;
+    padding: 56px 48px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: var(--orange);
+    opacity: .12;
+  }
+  .cover-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    color: var(--orange-md);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .cover h1 {
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .cover h1 span { color: var(--orange-md); }
+  .cover-sub {
+    font-size: 15px;
+    color: #A0B0C4;
+    margin-bottom: 36px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .meta-item { font-size: 13px; color: #A0B0C4; }
+  .meta-item strong { color: #fff; display: block; font-size: 14px; margin-bottom: 2px; }
+
+  /* ── NAV TABS ─────────────────────────────────────────────────────── */
+  .tab-bar {
+    background: var(--white);
+    border-bottom: 2px solid var(--line);
+    padding: 0 48px;
+    display: flex;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+  }
+  .tab {
+    padding: 16px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: color .2s, border-color .2s;
+  }
+  .tab:hover { color: var(--dark); }
+  .tab.active { color: var(--orange); border-bottom-color: var(--orange); font-weight: 600; }
+
+  /* ── CONTENT ──────────────────────────────────────────────────────── */
+  .page { display: none; padding: 48px; }
+  .page.active { display: block; }
+
+  .flow-header { margin-bottom: 40px; }
+  .flow-header .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .flow-header h2 { font-size: 26px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .flow-header p { font-size: 14px; color: var(--muted); max-width: 640px; line-height: 1.6; }
+
+  /* ── LEGEND ───────────────────────────────────────────────────────── */
+  .legend {
+    display: flex; gap: 20px; flex-wrap: wrap;
+    margin-bottom: 36px;
+    padding: 14px 20px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    width: fit-content;
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+  .legend-box {
+    width: 18px; height: 18px; border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .lb-start  { background: var(--dark); border-radius: 50%; }
+  .lb-action { background: var(--white); border: 2px solid var(--mid); }
+  .lb-decision { background: var(--orange-lt); border: 2px solid var(--orange); transform: rotate(45deg); width: 16px; height: 16px; }
+  .lb-system { background: #EEF4FF; border: 2px solid #6B9EE0; }
+  .lb-end    { background: var(--orange); border-radius: 50%; }
+
+  /* ── FLOW DIAGRAM ─────────────────────────────────────────────────── */
+  .flow-wrap {
+    overflow-x: auto;
+    padding-bottom: 16px;
+  }
+
+  .flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: fit-content;
+    min-width: 100%;
+  }
+
+  /* row = horizontal group of branches */
+  .flow-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    justify-content: center;
+  }
+
+  /* ── NODE TYPES ───────────────────────────────────────────────────── */
+  .node-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .node {
+    position: relative;
+    width: var(--step-w);
+    text-align: center;
+  }
+
+  /* Connector lines */
+  .arrow-down {
+    width: 2px;
+    background: var(--arrow);
+    height: 32px;
+    position: relative;
+    margin: 0 auto;
+  }
+  .arrow-down::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid var(--arrow);
+  }
+  .arrow-right {
+    height: 2px;
+    background: var(--arrow);
+    width: 48px;
+    position: relative;
+    margin: auto 0;
+    flex-shrink: 0;
+  }
+  .arrow-right::after {
+    content: '';
+    position: absolute;
+    right: -1px; top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 7px solid var(--arrow);
+  }
+
+  /* Start / End pill */
+  .node-terminal .inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 36px;
+    border-radius: 18px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .node-terminal.start .inner { background: var(--dark); color: #fff; }
+  .node-terminal.end   .inner { background: var(--orange); color: #fff; }
+
+  /* Action box */
+  .node-action .inner {
+    display: block;
+    padding: 12px 14px;
+    background: var(--white);
+    border: 1.5px solid var(--mid);
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--dark);
+    font-weight: 500;
+  }
+  .node-action .actor {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  /* System response box */
+  .node-system .inner {
+    display: block;
+    padding: 12px 14px;
+    background: #EEF4FF;
+    border: 1.5px solid #6B9EE0;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #1A2B5E;
+    font-weight: 500;
+  }
+  .node-system .actor {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #6B9EE0;
+    margin-bottom: 4px;
+  }
+
+  /* Decision diamond */
+  .node-decision {
+    width: var(--step-w);
+  }
+  .node-decision .diamond-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 72px;
+  }
+  .node-decision .diamond {
+    width: 100px; height: 52px;
+    background: var(--orange-lt);
+    border: 2px solid var(--orange);
+    transform: perspective(200px) rotateX(10deg);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--orange);
+    text-align: center;
+    padding: 6px;
+    line-height: 1.3;
+  }
+
+  /* Branch labels */
+  .branch-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin: 4px 0;
+    text-align: center;
+  }
+  .branch-label.yes { color: #2E7D32; }
+  .branch-label.no  { color: #C62828; }
+
+  /* Horizontal fork container */
+  .fork {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    width: fit-content;
+  }
+  .fork-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── SWIMLANE VARIANT ─────────────────────────────────────────────── */
+  .swimlane-wrap {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0;
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white);
+    margin-bottom: 32px;
+  }
+  .swimlane-label {
+    background: var(--dark);
+    color: #fff;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .swimlane-label.employee { background: var(--mid); }
+  .swimlane-label.system   { background: #3A5FAF; }
+  .swimlane-label.manager  { background: #2E7D32; }
+  .swimlane-content {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  /* ── TABLE SUMMARY ────────────────────────────────────────────────── */
+  .flow-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 32px;
+    background: var(--white);
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .flow-table th {
+    background: var(--dark);
+    color: #fff;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .flow-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .flow-table tr:last-child td { border-bottom: none; }
+  .flow-table tr:nth-child(even) td { background: var(--bg); }
+  .step-num {
+    display: inline-flex;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .tag-user   { background: #E8F5E9; color: #2E7D32; }
+  .tag-system { background: #E3EEFF; color: #1A4FAF; }
+  .tag-decision { background: #FFF3EC; color: #E05A00; }
+  .tag-end    { background: #FCE4EC; color: #C62828; }
+
+  /* ── RISK BOX ─────────────────────────────────────────────────────── */
+  .risk-box {
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: #FFF8F5;
+    border-left: 4px solid var(--orange);
+    border-radius: 0 8px 8px 0;
+  }
+  .risk-box h4 { font-size: 13px; font-weight: 700; color: var(--orange); margin-bottom: 10px; }
+  .risk-box ul { list-style: none; padding: 0; }
+  .risk-box ul li {
+    font-size: 13px; color: var(--dark); line-height: 1.6;
+    padding-left: 16px; position: relative; margin-bottom: 4px;
+  }
+  .risk-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+
+  /* ── PRINT ────────────────────────────────────────────────────────── */
+  @media print {
+    .tab-bar { display: none; }
+    .page { display: block !important; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">Assignment 4 — QA Requirements Analysis</div>
+  <h1>OrangeHRM<br><span>Process Flow Diagrams</span></h1>
+  <div class="cover-sub">Step 4 Deliverable — User Flow Mapping</div>
+  <div class="cover-meta">
+    <div class="meta-item"><strong>Team B</strong>Kamogelo · Luthando · Nyeleti</div>
+    <div class="meta-item"><strong>System</strong>OrangeHRM Demo</div>
+    <div class="meta-item"><strong>Flows Covered</strong>4 End-to-End Flows</div>
+    <div class="meta-item"><strong>Date</strong>June 2026</div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tab-bar">
+  <button class="tab active" onclick="showTab(0)">1 · Login → Dashboard</button>
+  <button class="tab" onclick="showTab(1)">2 · Employee Creation</button>
+  <button class="tab" onclick="showTab(2)">3 · Leave Application</button>
+  <button class="tab" onclick="showTab(3)">4 · Recruitment</button>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     FLOW 1: LOGIN → DASHBOARD
+════════════════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-0">
+  <div class="flow-header">
+    <div class="eyebrow">Flow 1 of 4</div>
+    <h2>Login → Dashboard Flow</h2>
+    <p>Describes the complete authentication journey from landing on the login page through credential validation to accessing the role-appropriate dashboard. Covers both success and failure paths.</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-box lb-start"></div> Start / End</div>
+    <div class="legend-item"><div class="legend-box lb-action"></div> User Action</div>
+    <div class="legend-item"><div class="legend-box lb-system"></div> System Response</div>
+    <div class="legend-item"><div class="legend-box lb-decision"></div> Decision Point</div>
+  </div>
+
+  <div class="flow-wrap">
+    <div class="flow">
+
+      <!-- START -->
+      <div class="node-wrap">
+        <div class="node node-terminal start"><div class="inner">START</div></div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="node-wrap">
+        <div class="node node-system">
+          <div class="inner"><div class="actor">System</div>Renders login page with Username field, Password field, Login button, and Forgot Password link</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="node-wrap">
+        <div class="node node-action">
+          <div class="inner"><div class="actor">User</div>Enters Username and Password, clicks Login</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <!-- Decision: fields empty? -->
+      <div class="node-wrap">
+        <div class="node node-decision">
+          <div class="diamond-wrap"><div class="diamond">Fields empty?</div></div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <!-- Branch: empty vs filled -->
+      <div class="fork">
+        <!-- YES branch -->
+        <div class="fork-branch">
+          <div class="arrow-right" style="transform: rotate(180deg); margin-right: -1px;"></div>
+        </div>
+        <div class="fork-branch" style="margin-right: 80px;">
+          <div class="branch-label yes">Yes</div>
+          <div class="node node-system" style="--step-w:180px">
+            <div class="inner"><div class="actor">System</div>Displays "Username / Password cannot be empty" validation error</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-action" style="--step-w:180px">
+            <div class="inner"><div class="actor">User</div>Corrects input and resubmits</div>
+          </div>
+        </div>
+        <!-- NO branch -->
+        <div class="fork-branch">
+          <div class="arrow-right"></div>
+        </div>
+        <div class="fork-branch">
+          <div class="branch-label no">No</div>
+          <div class="node node-system" style="--step-w:220px">
+            <div class="inner"><div class="actor">System</div>Sends credentials to authentication service for validation</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-decision" style="--step-w:220px">
+            <div class="diamond-wrap"><div class="diamond">Credentials valid?</div></div>
+          </div>
+          <div class="arrow-down"></div>
+          <!-- Sub-fork: valid vs invalid -->
+          <div class="fork">
+            <div class="fork-branch" style="margin-right: 60px;">
+              <div class="branch-label no">Invalid</div>
+              <div class="node node-system" style="--step-w:190px">
+                <div class="inner"><div class="actor">System</div>Displays "Invalid credentials" error. Page remains on login.</div>
+              </div>
+              <div class="arrow-down"></div>
+              <div class="node node-action" style="--step-w:190px">
+                <div class="inner"><div class="actor">User</div>Re-enters credentials or clicks Forgot Password</div>
+              </div>
+            </div>
+            <div class="fork-branch">
+              <div class="branch-label yes">Valid</div>
+              <div class="node node-system" style="--step-w:190px">
+                <div class="inner"><div class="actor">System</div>Creates authenticated session, identifies user role</div>
+              </div>
+              <div class="arrow-down"></div>
+              <div class="node node-decision" style="--step-w:190px">
+                <div class="diamond-wrap"><div class="diamond">Role = Admin?</div></div>
+              </div>
+              <div class="arrow-down"></div>
+              <div class="fork">
+                <div class="fork-branch" style="margin-right: 40px;">
+                  <div class="branch-label yes">Yes</div>
+                  <div class="node node-system" style="--step-w:160px">
+                    <div class="inner"><div class="actor">System</div>Loads Admin Dashboard with full widgets + all modules</div>
+                  </div>
+                </div>
+                <div class="fork-branch">
+                  <div class="branch-label no">No (ESS)</div>
+                  <div class="node node-system" style="--step-w:160px">
+                    <div class="inner"><div class="actor">System</div>Loads Employee Dashboard with limited self-service modules</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-down"></div>
+      <div class="node-wrap">
+        <div class="node node-terminal end"><div class="inner">END</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <table class="flow-table">
+    <thead><tr><th>#</th><th>Actor</th><th>Step</th><th>Type</th><th>Testable Condition</th></tr></thead>
+    <tbody>
+      <tr><td><span class="step-num">1</span></td><td>System</td><td>Renders login page with all required fields</td><td><span class="tag tag-system">System</span></td><td>Login page loads; username, password fields and login button are visible</td></tr>
+      <tr><td><span class="step-num">2</span></td><td>User</td><td>Enters credentials and clicks Login</td><td><span class="tag tag-user">User</span></td><td>Form accepts input in both fields</td></tr>
+      <tr><td><span class="step-num">3</span></td><td>System</td><td>Validates that fields are not empty</td><td><span class="tag tag-decision">Decision</span></td><td>Empty field triggers correct validation message</td></tr>
+      <tr><td><span class="step-num">4</span></td><td>System</td><td>Authenticates credentials</td><td><span class="tag tag-decision">Decision</span></td><td>Invalid credentials show error; valid credentials proceed</td></tr>
+      <tr><td><span class="step-num">5</span></td><td>System</td><td>Identifies user role</td><td><span class="tag tag-decision">Decision</span></td><td>Admin sees full dashboard; ESS employee sees limited view</td></tr>
+      <tr><td><span class="step-num">6</span></td><td>System</td><td>Loads role-appropriate dashboard</td><td><span class="tag tag-system">System</span></td><td>Dashboard loads with correct modules per role</td></tr>
+    </tbody>
+  </table>
+
+  <div class="risk-box">
+    <h4>⚠ Identified Risks in This Flow</h4>
+    <ul>
+      <li>No account lockout observed after repeated failed attempts — potential brute-force vulnerability</li>
+      <li>Password field masking must be verified — plain text exposure would be a critical security defect</li>
+      <li>Session persistence after browser close is unconfirmed — could allow unauthorised access on shared devices</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     FLOW 2: EMPLOYEE CREATION
+════════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-1">
+  <div class="flow-header">
+    <div class="eyebrow">Flow 2 of 4</div>
+    <h2>Employee Creation Flow (PIM)</h2>
+    <p>Covers the end-to-end process an Admin follows to add a new employee to the system via the PIM module — from navigation through to the completed employee profile.</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-box lb-start"></div> Start / End</div>
+    <div class="legend-item"><div class="legend-box lb-action"></div> User Action</div>
+    <div class="legend-item"><div class="legend-box lb-system"></div> System Response</div>
+    <div class="legend-item"><div class="legend-box lb-decision"></div> Decision Point</div>
+  </div>
+
+  <div class="flow-wrap">
+    <div class="flow">
+
+      <div class="node-wrap">
+        <div class="node node-terminal start"><div class="inner">START</div></div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-action">
+          <div class="inner"><div class="actor">Admin</div>Logs in and navigates to PIM module → Employee List</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-action">
+          <div class="inner"><div class="actor">Admin</div>Clicks "Add Employee" button</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-system">
+          <div class="inner"><div class="actor">System</div>Displays Add Employee form with First Name, Last Name, Employee ID fields</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-action">
+          <div class="inner"><div class="actor">Admin</div>Enters First Name, Last Name. Reviews auto-generated Employee ID. Optionally uploads profile photo.</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-action">
+          <div class="inner"><div class="actor">Admin</div>Clicks "Save"</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-decision">
+          <div class="diamond-wrap"><div class="diamond">Required fields complete?</div></div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="fork">
+        <div class="fork-branch" style="margin-right:80px;">
+          <div class="branch-label no">No</div>
+          <div class="node node-system" style="--step-w:190px">
+            <div class="inner"><div class="actor">System</div>Highlights mandatory fields with validation errors. Record not created.</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-action" style="--step-w:190px">
+            <div class="inner"><div class="actor">Admin</div>Corrects missing fields and resubmits</div>
+          </div>
+        </div>
+        <div class="fork-branch">
+          <div class="branch-label yes">Yes</div>
+          <div class="node node-system" style="--step-w:210px">
+            <div class="inner"><div class="actor">System</div>Creates employee record. Auto-assigns unique Employee ID. Redirects to full employee profile.</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-action" style="--step-w:210px">
+            <div class="inner"><div class="actor">Admin</div>Navigates to profile sections: Contact Details → Job → Salary → Qualifications and adds additional information</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-action" style="--step-w:210px">
+            <div class="inner"><div class="actor">Admin</div>Clicks Save on each section</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-system" style="--step-w:210px">
+            <div class="inner"><div class="actor">System</div>Saves section data. Employee profile is complete and searchable in the Employee List.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-down"></div>
+      <div class="node-wrap">
+        <div class="node node-terminal end"><div class="inner">END</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <table class="flow-table">
+    <thead><tr><th>#</th><th>Actor</th><th>Step</th><th>Type</th><th>Testable Condition</th></tr></thead>
+    <tbody>
+      <tr><td><span class="step-num">1</span></td><td>Admin</td><td>Navigate to PIM → Employee List → Add Employee</td><td><span class="tag tag-user">User</span></td><td>Add Employee button is visible and accessible to Admin only</td></tr>
+      <tr><td><span class="step-num">2</span></td><td>System</td><td>Displays Add Employee form</td><td><span class="tag tag-system">System</span></td><td>Form renders with First Name, Last Name, Employee ID fields</td></tr>
+      <tr><td><span class="step-num">3</span></td><td>Admin</td><td>Enters employee details and saves</td><td><span class="tag tag-user">User</span></td><td>Form accepts valid input and proceeds on Save</td></tr>
+      <tr><td><span class="step-num">4</span></td><td>System</td><td>Validates required fields</td><td><span class="tag tag-decision">Decision</span></td><td>Missing First/Last Name blocks save; error is displayed</td></tr>
+      <tr><td><span class="step-num">5</span></td><td>System</td><td>Creates record with unique Employee ID</td><td><span class="tag tag-system">System</span></td><td>New employee appears in list; ID is unique and not duplicated</td></tr>
+      <tr><td><span class="step-num">6</span></td><td>Admin</td><td>Completes additional profile sections</td><td><span class="tag tag-user">User</span></td><td>Each section saves independently; data persists on reload</td></tr>
+    </tbody>
+  </table>
+
+  <div class="risk-box">
+    <h4>⚠ Identified Risks in This Flow</h4>
+    <ul>
+      <li>Deleting an employee who has linked leave, timesheet, or recruitment data — system behaviour unconfirmed</li>
+      <li>CSV import with duplicate Employee IDs — could cause data integrity issues</li>
+      <li>No confirmation dialog observed before deletion — accidental deletes are a risk</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     FLOW 3: LEAVE APPLICATION
+════════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-2">
+  <div class="flow-header">
+    <div class="eyebrow">Flow 3 of 4</div>
+    <h2>Leave Application Flow</h2>
+    <p>Maps the full leave request lifecycle — from the employee submitting a request, through the manager's approval/rejection decision, to the final update of leave balances. Includes the cancellation path.</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-box lb-start"></div> Start / End</div>
+    <div class="legend-item"><div class="legend-box lb-action"></div> User Action</div>
+    <div class="legend-item"><div class="legend-box lb-system"></div> System Response</div>
+    <div class="legend-item"><div class="legend-box lb-decision"></div> Decision Point</div>
+  </div>
+
+  <div class="flow-wrap">
+    <div class="flow">
+
+      <div class="node-wrap">
+        <div class="node node-terminal start"><div class="inner">START</div></div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-action">
+          <div class="inner"><div class="actor">Employee</div>Navigates to Leave → Apply Leave</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-system">
+          <div class="inner"><div class="actor">System</div>Displays leave application form showing leave types and available balance per type</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-action">
+          <div class="inner"><div class="actor">Employee</div>Selects Leave Type, From Date, To Date, and enters a comment/reason</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-action">
+          <div class="inner"><div class="actor">Employee</div>Clicks "Apply"</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-decision">
+          <div class="diamond-wrap"><div class="diamond">Sufficient leave balance?</div></div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="fork">
+        <div class="fork-branch" style="margin-right:80px;">
+          <div class="branch-label no">No</div>
+          <div class="node node-system" style="--step-w:190px">
+            <div class="inner"><div class="actor">System</div>Displays error: insufficient leave balance. Request not submitted.</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-action" style="--step-w:190px">
+            <div class="inner"><div class="actor">Employee</div>Adjusts dates or selects different leave type</div>
+          </div>
+        </div>
+        <div class="fork-branch">
+          <div class="branch-label yes">Yes</div>
+          <div class="node node-system" style="--step-w:210px">
+            <div class="inner"><div class="actor">System</div>Creates leave request with status = "Pending". Notifies assigned manager/supervisor.</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-action" style="--step-w:210px">
+            <div class="inner"><div class="actor">Manager</div>Reviews request in Leave → Leave List. Views dates, reason, and employee balance.</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-decision" style="--step-w:210px">
+            <div class="diamond-wrap"><div class="diamond">Manager decision?</div></div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="fork">
+            <div class="fork-branch" style="margin-right:40px;">
+              <div class="branch-label no">Reject</div>
+              <div class="node node-system" style="--step-w:170px">
+                <div class="inner"><div class="actor">System</div>Status → "Rejected". Balance unchanged. Employee notified.</div>
+              </div>
+            </div>
+            <div class="fork-branch">
+              <div class="branch-label yes">Approve</div>
+              <div class="node node-system" style="--step-w:170px">
+                <div class="inner"><div class="actor">System</div>Status → "Approved". Leave balance deducted. Leave calendar updated. Employee notified.</div>
+              </div>
+              <div class="arrow-down"></div>
+              <div class="node node-decision" style="--step-w:170px">
+                <div class="diamond-wrap"><div class="diamond">Employee cancels?</div></div>
+              </div>
+              <div class="arrow-down"></div>
+              <div class="node node-system" style="--step-w:170px">
+                <div class="inner"><div class="actor">System</div>Status → "Cancelled". Balance restored. Calendar updated.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-down"></div>
+      <div class="node-wrap">
+        <div class="node node-terminal end"><div class="inner">END</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <table class="flow-table">
+    <thead><tr><th>#</th><th>Actor</th><th>Step</th><th>Type</th><th>Testable Condition</th></tr></thead>
+    <tbody>
+      <tr><td><span class="step-num">1</span></td><td>Employee</td><td>Navigate to Leave → Apply Leave</td><td><span class="tag tag-user">User</span></td><td>Leave module accessible; form loads correctly</td></tr>
+      <tr><td><span class="step-num">2</span></td><td>System</td><td>Display leave types and available balances</td><td><span class="tag tag-system">System</span></td><td>Correct balance shown per leave type</td></tr>
+      <tr><td><span class="step-num">3</span></td><td>Employee</td><td>Fill and submit leave form</td><td><span class="tag tag-user">User</span></td><td>Form accepts valid leave type, from/to dates, and comment</td></tr>
+      <tr><td><span class="step-num">4</span></td><td>System</td><td>Validate sufficient balance</td><td><span class="tag tag-decision">Decision</span></td><td>Request exceeding balance is rejected with error message</td></tr>
+      <tr><td><span class="step-num">5</span></td><td>System</td><td>Create pending request and notify manager</td><td><span class="tag tag-system">System</span></td><td>Request appears as "Pending" in Leave List; manager receives notification</td></tr>
+      <tr><td><span class="step-num">6</span></td><td>Manager</td><td>Approve or Reject the request</td><td><span class="tag tag-decision">Decision</span></td><td>Approval deducts balance and updates calendar; rejection leaves balance unchanged</td></tr>
+      <tr><td><span class="step-num">7</span></td><td>Employee</td><td>Optionally cancel approved leave</td><td><span class="tag tag-user">User</span></td><td>Cancellation restores balance and removes from calendar</td></tr>
+    </tbody>
+  </table>
+
+  <div class="risk-box">
+    <h4>⚠ Identified Risks in This Flow</h4>
+    <ul>
+      <li>Back-dated leave applications — system may not prevent employees from applying for past dates</li>
+      <li>Public holiday handling — if a holiday falls within a leave period, the system must exclude it from balance deductions</li>
+      <li>Concurrent approvals — if two managers approve the same request simultaneously, a race condition could cause double processing</li>
+      <li>Notification delivery is assumed but not verified in the demo environment</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     FLOW 4: RECRUITMENT
+════════════════════════════════════════════════════════════════════ -->
+<div class="page" id="page-3">
+  <div class="flow-header">
+    <div class="eyebrow">Flow 4 of 4</div>
+    <h2>Recruitment Flow</h2>
+    <p>Traces the full hiring cycle — from HR creating a vacancy, through candidate application and pipeline progression, to the final hire decision and handover to PIM for onboarding.</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-box lb-start"></div> Start / End</div>
+    <div class="legend-item"><div class="legend-box lb-action"></div> User Action</div>
+    <div class="legend-item"><div class="legend-box lb-system"></div> System Response</div>
+    <div class="legend-item"><div class="legend-box lb-decision"></div> Decision Point</div>
+  </div>
+
+  <div class="flow-wrap">
+    <div class="flow">
+
+      <div class="node-wrap">
+        <div class="node node-terminal start"><div class="inner">START</div></div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-action">
+          <div class="inner"><div class="actor">HR / Admin</div>Navigates to Recruitment → Vacancies → Add Vacancy</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-action">
+          <div class="inner"><div class="actor">HR / Admin</div>Enters Job Title, Hiring Manager, Number of Positions, Description. Clicks Save.</div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="node-wrap">
+        <div class="node node-decision">
+          <div class="diamond-wrap"><div class="diamond">Positions &gt; 0 and required fields filled?</div></div>
+        </div>
+        <div class="arrow-down"></div>
+      </div>
+
+      <div class="fork">
+        <div class="fork-branch" style="margin-right:80px;">
+          <div class="branch-label no">No</div>
+          <div class="node node-system" style="--step-w:180px">
+            <div class="inner"><div class="actor">System</div>Displays validation error. Vacancy not created.</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-action" style="--step-w:180px">
+            <div class="inner"><div class="actor">HR / Admin</div>Corrects fields and resubmits</div>
+          </div>
+        </div>
+        <div class="fork-branch">
+          <div class="branch-label yes">Yes</div>
+          <div class="node node-system" style="--step-w:210px">
+            <div class="inner"><div class="actor">System</div>Vacancy created with status "Active" and listed in Vacancies view</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-action" style="--step-w:210px">
+            <div class="inner"><div class="actor">HR / Admin</div>Navigates to vacancy → Adds candidate (manual entry: name, email, resume)</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-system" style="--step-w:210px">
+            <div class="inner"><div class="actor">System</div>Candidate added with status "Application Initiated"</div>
+          </div>
+          <div class="arrow-down"></div>
+
+          <!-- Pipeline stages -->
+          <div class="node node-action" style="--step-w:210px">
+            <div class="inner"><div class="actor">HR / Admin</div>Reviews application → Moves candidate to "Shortlisted"</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-system" style="--step-w:210px">
+            <div class="inner"><div class="actor">System</div>Status updated → "Shortlisted"</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-action" style="--step-w:210px">
+            <div class="inner"><div class="actor">HR / Admin</div>Schedules interview: sets date, time, interviewers</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-system" style="--step-w:210px">
+            <div class="inner"><div class="actor">System</div>Interview recorded. Status → "Interview Scheduled"</div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="node node-decision" style="--step-w:210px">
+            <div class="diamond-wrap"><div class="diamond">Candidate passes interview?</div></div>
+          </div>
+          <div class="arrow-down"></div>
+          <div class="fork">
+            <div class="fork-branch" style="margin-right:40px;">
+              <div class="branch-label no">No</div>
+              <div class="node node-system" style="--step-w:170px">
+                <div class="inner"><div class="actor">System</div>Status → "Interview Failed" or "Rejected". Vacancy remains active.</div>
+              </div>
+            </div>
+            <div class="fork-branch">
+              <div class="branch-label yes">Yes</div>
+              <div class="node node-action" style="--step-w:170px">
+                <div class="inner"><div class="actor">HR / Admin</div>Extends job offer → Status → "Job Offered"</div>
+              </div>
+              <div class="arrow-down"></div>
+              <div class="node node-decision" style="--step-w:170px">
+                <div class="diamond-wrap"><div class="diamond">Offer accepted?</div></div>
+              </div>
+              <div class="arrow-down"></div>
+              <div class="fork">
+                <div class="fork-branch" style="margin-right:30px;">
+                  <div class="branch-label no">Declined</div>
+                  <div class="node node-system" style="--step-w:150px">
+                    <div class="inner"><div class="actor">System</div>Status → "Offer Declined". Vacancy remains open.</div>
+                  </div>
+                </div>
+                <div class="fork-branch">
+                  <div class="branch-label yes">Accepted</div>
+                  <div class="node node-action" style="--step-w:150px">
+                    <div class="inner"><div class="actor">HR / Admin</div>Marks candidate as "Hired"</div>
+                  </div>
+                  <div class="arrow-down"></div>
+                  <div class="node node-system" style="--step-w:150px">
+                    <div class="inner"><div class="actor">System</div>Option to add candidate as employee in PIM. Vacancy positions count decrements.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-down"></div>
+      <div class="node-wrap">
+        <div class="node node-terminal end"><div class="inner">END</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <table class="flow-table">
+    <thead><tr><th>#</th><th>Actor</th><th>Step</th><th>Type</th><th>Testable Condition</th></tr></thead>
+    <tbody>
+      <tr><td><span class="step-num">1</span></td><td>HR/Admin</td><td>Create vacancy with required details</td><td><span class="tag tag-user">User</span></td><td>Vacancy with 0 positions is blocked; valid vacancy is created and listed</td></tr>
+      <tr><td><span class="step-num">2</span></td><td>System</td><td>Create active vacancy</td><td><span class="tag tag-system">System</span></td><td>Vacancy appears in list with "Active" status</td></tr>
+      <tr><td><span class="step-num">3</span></td><td>HR/Admin</td><td>Add candidate to vacancy</td><td><span class="tag tag-user">User</span></td><td>Candidate appears in candidate list linked to the vacancy</td></tr>
+      <tr><td><span class="step-num">4</span></td><td>HR/Admin</td><td>Move candidate through pipeline stages</td><td><span class="tag tag-decision">Decision</span></td><td>Each stage update changes status correctly; history is preserved</td></tr>
+      <tr><td><span class="step-num">5</span></td><td>HR/Admin</td><td>Schedule interview</td><td><span class="tag tag-user">User</span></td><td>Interview record saved with date, time, and interviewer details</td></tr>
+      <tr><td><span class="step-num">6</span></td><td>HR/Admin</td><td>Extend job offer</td><td><span class="tag tag-user">User</span></td><td>Status changes to "Job Offered"; offer can be accepted or declined</td></tr>
+      <tr><td><span class="step-num">7</span></td><td>System</td><td>Process hire → link to PIM</td><td><span class="tag tag-system">System</span></td><td>Hired candidate can be added as employee; vacancy position count decrements</td></tr>
+    </tbody>
+  </table>
+
+  <div class="risk-box">
+    <h4>⚠ Identified Risks in This Flow</h4>
+    <ul>
+      <li>Same candidate added to the same vacancy twice — system should detect and prevent duplicates</li>
+      <li>Vacancy closed while candidates are still in the pipeline — their status and history must be preserved</li>
+      <li>No confirmation observed when moving candidates backward in the pipeline</li>
+      <li>Positions count decrement on hire is assumed — not confirmed if system enforces a hard cap when all positions are filled</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  function showTab(i) {
+    document.querySelectorAll('.tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
+    document.querySelectorAll('.page').forEach((p, idx) => p.classList.toggle('active', idx === i));
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+EMPLOYEE LOGIN & REGISTRATION SYSTEM
+Brief Explanation 
+Kamogelo Sekhaolelo | Programming Assessment 1
+=======================================================
+
+1. DATA TYPES USED AND WHY
+--------------------------
+- string  : Used for Name, Surname, Role, and Username because these are
+            text values with no calculations needed on them.
+
+- int     : Used for Age and EmployeeID because both are whole numbers.
+            You wouldn't have an age of 28.5, so decimal would be wasteful.
+
+- decimal : Used for Salary instead of double because decimal is more
+            precise with money — it avoids rounding errors common in
+            floating-point arithmetic (e.g. 45000.50 stays exact).
+
+- bool    : Used for IsActive to flag whether an employee account is
+            active or not. A bool is perfect for any true/false state.
+
+
+2. EXAMPLES OF IF STATEMENTS
+-----------------------------
+a) Age validation:
+   if (age < 18)
+   {
+       Console.WriteLine("[!] You must be 18 or older to register.");
+   }
+
+b) Empty input validation:
+   if (string.IsNullOrWhiteSpace(input))
+   {
+       Console.WriteLine("[!] This field cannot be empty.");
+   }
+
+c) Username uniqueness check (inside UsernameExists method):
+   if (emp.Username.ToLower() == username.ToLower())
+       return true;
+
+d) Login: check if employee was found in the list:
+   if (found == null)
+   {
+       Console.WriteLine("[!] Username not found.");
+       return;
+   }
+
+e) Login: verify password using the Employee method:
+   if (!found.CheckPassword(password))
+   {
+       Console.WriteLine("[!] Incorrect password.");
+       return;
+   }
+
+f) Salary validation:
+   if (!decimal.TryParse(salInput, out salary) || salary < 0)
+   {
+       Console.WriteLine("[!] Please enter a valid salary.");
+   }
+
+
+3. PUBLIC VS PRIVATE AND WHY
+-----------------------------
+PUBLIC:
+  - Name, Surname, Age, Salary, Role, Username, IsActive, EmployeeID
+    are all public properties because the Program class needs to read
+    and display them (e.g. in ViewAllEmployees and DisplayProfile).
+
+  - CheckPassword() is a public method because the Program class needs
+    to verify a login attempt — but it only returns true/false, never
+    the actual password string.
+
+  - DisplayProfile() is public so Program can call it after a
+    successful login.
+
+PRIVATE:
+  - _password is a private field because no outside code should ever
+    be able to read or change a password directly. Only the class
+    itself uses it, inside the CheckPassword() method.
+
+  - EmployeeID has a private setter (public get, private set) so the
+    ID is readable from outside but can only be assigned inside the
+    Employee constructor — preventing accidental ID changes.
+
+INTERNAL:
+  - The Employee class itself is marked internal, meaning it is only
+    accessible within this project/assembly, not from external code.
+
+
+4. THE CHALLENGES I FACED
+-------------------------
+The 1st challenge was figuring out how to use Public and Private class
+as well as making sure the main(class)/Internal class is able to 
+effectively use the data of the Employee class.
+
+Secondly using Arrays/Lists to store employee information on RAM was a bit
+of a challenge since i've never used Arrays that store and use the User's 
+input.
+
+The 3rd trickiest part was handling the password securely while still
+allowing login verification. If I made _password public, any code
+could read it — which defeats the point of a private field. The
+solution was to keep _password private and add a public method
+CheckPassword(string input) that does the comparison internally and
+only returns a bool. This way the Program class can verify a login
+without ever seeing the actual password value — which is good
+object-oriented design (encapsulation).
+
+After some testing and errors I finally corrected my code and made
+it run without issues.

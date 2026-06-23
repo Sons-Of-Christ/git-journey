@@ -1,0 +1,769 @@
+================================================================================
+  LUBANZI CINEMAS — MOVIE TICKET BOOKING SYSTEM
+  Class Documentation & OOP Concepts Reference
+  Document ID : LUB-AC-003
+  Project      : Project 1 — C# Console Application
+  Author       : Kamogelo Sekhaolelo Assignment 3 Submission
+================================================================================
+
+
+TABLE OF CONTENTS
+-----------------
+  1.  Project Overview
+  2.  File & Class List
+  3.  CLASS: Movie
+  4.  CLASS: Snack
+  5.  CLASS: SnackOrder
+  6.  CLASS: Booking
+  7.  CLASS: Theater
+  8.  CLASS: Program
+  9.  OOP Concepts Used
+        9.1  Access Modifiers
+        9.2  Control Statements
+        9.3  Data Structures
+  10. Class Relationships & How They Connect
+  11. How Information Flows Through the Program
+  12. Inheritance & Extensibility Notes
+
+
+================================================================================
+1. PROJECT OVERVIEW
+================================================================================
+
+This is a console-based Movie Ticket Booking System built in C# for Lubanzi
+Cinemas. Customers can browse movies, book tickets, add snacks, apply discounts,
+pay by Cash/Card/Crypto, and cancel bookings. The system launches with 5
+preloaded active bookings and 3 preloaded cancelled bookings to simulate a
+real-world dataset.
+
+The solution is split across 5 source files inside the namespace
+"MovieBookingSystem":
+
+    Movie.cs        — Represents a single movie in the catalog
+    Snack.cs        — Represents a single snack/drink item sold at the cinema
+    Booking.cs      — Represents a ticket booking (also contains SnackOrder)
+    Theater.cs      — Main logic class; manages movies, snacks, and bookings
+    Program.cs      — Entry point; runs the main menu loop
+
+
+================================================================================
+2. FILE & CLASS LIST
+================================================================================
+
+  File          Class(es) Inside          Role
+  ------------- ------------------------- ------------------------------------
+  Movie.cs      Movie                     Data model for a film
+  Snack.cs      Snack                     Data model for a snack/drink item
+  Booking.cs    Booking, SnackOrder       Data model for a booking + line item
+  Theater.cs    Theater                   Business logic & data management
+  Program.cs    Program                   Entry point & menu controller
+
+
+================================================================================
+3. CLASS: Movie
+   File: Movie.cs
+================================================================================
+
+PURPOSE
+-------
+Represents a single movie showing at the cinema. Stores all the details about
+a film and tracks how many seats are still available for that showing.
+
+FIELDS (all private)
+--------------------
+  title           string    The name of the movie
+  genre           string    The genre (Action, Sci-Fi, Romance, Horror, Drama)
+  duration        int       Runtime in minutes
+  price           double    Ticket price in Rands per seat
+  availableSeats  int       How many seats remain (decreases when booked,
+                            increases when a booking is cancelled)
+
+PROPERTIES (all public)
+-----------------------
+  Each private field above has a matching public property with a get and set.
+  Example: Title { get; set; } wraps the private "title" field.
+  This is called ENCAPSULATION — the field is hidden but still accessible
+  through a controlled public interface.
+
+CONSTRUCTOR
+-----------
+  public Movie(string title, string genre, int duration,
+               double price, int availableSeats)
+  
+  Called when Theater creates the movie catalog. All 7 movies are created
+  with this constructor inside Theater.InitialiseMovies().
+
+METHODS
+-------
+  protected string GetMovieSummary()
+    Returns a short summary string of the movie. Marked protected so that
+    a future subclass (e.g. PremiumMovie) could override or call it.
+    Not called directly by the current program — it exists to demonstrate
+    the protected access modifier as required by the assignment.
+
+  internal bool HasSeatsAvailable(int requested)
+    Returns true if the number of requested seats is less than or equal to
+    the number of available seats. Marked internal so it is accessible
+    anywhere within the MovieBookingSystem assembly but not from outside.
+    Called by Theater.BookTickets() to validate seat availability.
+
+  public void DisplayInfo(int index)
+    Prints the movie's details to the console in a formatted layout.
+    Called by Theater.DisplayAllMovies() and Theater.SearchByGenre().
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+  - Encapsulation     : private fields + public properties
+  - Access modifiers  : public (properties, DisplayInfo), private (fields),
+                        protected (GetMovieSummary), internal (HasSeatsAvailable)
+
+
+================================================================================
+4. CLASS: Snack
+   File: Snack.cs
+================================================================================
+
+PURPOSE
+-------
+Represents a single item sold at the cinema snack bar. Items are grouped into
+three categories: Popcorn, Drinks, and Snacks. There are 13 snack items total,
+stored in a fixed Snack[] array inside Theater.
+
+FIELDS (all private)
+--------------------
+  snackID     string    Unique identifier (e.g. "S01", "S02")
+  name        string    Display name (e.g. "Large Popcorn")
+  category    string    Category label (Popcorn / Drinks / Snacks)
+  price       double    Price in Rands
+
+PROPERTIES (all public)
+-----------------------
+  SnackID, Name, Category, Price — each wraps its private field with get/set.
+
+CONSTRUCTOR
+-----------
+  public Snack(string snackID, string name, string category, double price)
+  
+  Called 13 times inside Theater.InitialiseSnacks() to build the snack catalog.
+
+METHODS
+-------
+  protected virtual string GetSnackLabel()
+    Returns a formatted label string. Marked protected virtual so a subclass
+    (e.g. ComboSnack) could override it with a different label format.
+    Demonstrates the protected access modifier.
+
+  internal bool IsInCategory(string cat)
+    Returns true if this snack's category matches the given string
+    (case-insensitive). Marked internal for assembly-level access.
+    Available for future use if Theater needs to filter snacks by category.
+
+  public void DisplayInfo()
+    Prints a single formatted row for this snack item to the console.
+    Called by Theater.ViewSnackMenu() and Theater.OrderSnacks().
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+  - Encapsulation    : private fields + public properties
+  - Access modifiers : public, private, protected (GetSnackLabel),
+                       internal (IsInCategory)
+  - Polymorphism     : GetSnackLabel() is virtual, ready to be overridden
+
+
+================================================================================
+5. CLASS: SnackOrder
+   File: Booking.cs  (defined in the same file as Booking)
+================================================================================
+
+PURPOSE
+-------
+A helper class that pairs a Snack object with a quantity. It represents one
+line item on a booking — for example "Large Popcorn x 2". Booking stores a
+collection of SnackOrder objects in its ArrayList called snackItems.
+
+FIELDS (all private)
+--------------------
+  snack      Snack    Reference to the Snack being ordered
+  quantity   int      How many of that snack were ordered
+
+PROPERTIES (public, read-only)
+------------------------------
+  Snack     { get; }   Returns the Snack reference
+  Quantity  { get; }   Returns the quantity
+
+CONSTRUCTOR
+-----------
+  public SnackOrder(Snack snack, int quantity)
+  
+  Called by Booking.AddSnack() every time a snack is added to a booking.
+
+METHODS
+-------
+  public double LineTotal()
+    Returns snack.Price * quantity. This is the cost of this one line item.
+    Called by Booking.SnackSubtotal() to sum up all snack costs.
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+  - Encapsulation    : private fields, public read-only properties
+  - Composition      : SnackOrder CONTAINS a Snack (has-a relationship)
+  - Single responsibility: this class has one job — calculate a line total
+
+
+================================================================================
+6. CLASS: Booking
+   File: Booking.cs
+================================================================================
+
+PURPOSE
+-------
+Represents a complete ticket booking made by a customer. It holds the movie
+being booked, how many tickets, the customer's name, payment method, discount
+applied, a list of snack orders, and whether the booking was cancelled.
+
+FIELDS (all private)
+--------------------
+  bookingID        string      Unique ID (e.g. "BK1001")
+  movie            Movie       Reference to the Movie being booked
+  customerName     string      Name of the customer
+  numberOfTickets  int         Number of tickets purchased
+  bookingTime      DateTime    When the booking was created (set automatically)
+  paymentMethod    string      "Cash", "Card", or "Crypto"
+  discountPercent  double      Discount applied (0.0, 5.0, 10.0, 15.0, or 20.0)
+  snackItems       ArrayList   Collection of SnackOrder objects
+  isCancelled      bool        True if the booking has been cancelled
+
+PROPERTIES (all public)
+-----------------------
+  BookingID, Movie, CustomerName, NumberOfTickets, BookingTime (read-only),
+  PaymentMethod, DiscountPercent, SnackItems (read-only), IsCancelled.
+
+CONSTRUCTOR
+-----------
+  public Booking(string bookingID, Movie movie, string customerName,
+                 int numberOfTickets, string paymentMethod = "Cash",
+                 double discountPercent = 0.0)
+
+  The last two parameters have default values, so older code that does not
+  pass payment/discount still works. Called by Theater every time a booking
+  is created — both for live bookings and for the preloaded seed data.
+
+METHODS
+-------
+  public void AddSnack(Snack snack, int qty)
+    Creates a new SnackOrder and adds it to the snackItems ArrayList.
+    Called by Theater.OrderSnacks() during the booking flow, and also
+    called directly during seed data setup in Theater's Load methods.
+
+  private double TicketSubtotal()
+    Returns movie.Price * numberOfTickets. Private because only this class
+    needs to use it internally.
+
+  private double SnackSubtotal()
+    Loops through snackItems (using a for loop) and sums all line totals.
+    Private helper — only used inside this class.
+
+  public double GrandTotal()
+    Calls TicketSubtotal() + SnackSubtotal() to get the combined total,
+    then applies the discount percentage and returns the final amount due.
+    Public because Theater.CollectPaymentMethod() needs to read it to
+    display the amount due before taking payment.
+
+  protected virtual string GetBookingType()
+    Returns "Standard Booking". Marked protected virtual so a subclass
+    (e.g. GroupBooking or VIPBooking) could override it with a different
+    label. Demonstrates the protected access modifier.
+
+  internal bool BelongsTo(string name)
+    Returns true if the booking's customerName matches the given name
+    (case-insensitive). Marked internal for assembly-level use.
+
+  public void DisplayInfo()
+    Prints a full formatted receipt for this booking to the console.
+    Conditionally shows the snack breakdown, discount line, and cancellation
+    status. Called by Theater when displaying bookings and receipts.
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+  - Encapsulation    : private fields, public properties, private helpers
+  - Composition      : Booking CONTAINS a Movie and a list of SnackOrders
+  - Access modifiers : public, private, protected, internal — all four
+  - Control flow     : for loop in SnackSubtotal, if in DisplayInfo
+  - Data structures  : ArrayList (snackItems)
+  - Default parameters: constructor has optional paymentMethod & discount
+
+
+================================================================================
+7. CLASS: Theater
+   File: Theater.cs
+================================================================================
+
+PURPOSE
+-------
+This is the main logic class of the entire application. It owns and manages
+all data — the movie catalog, snack catalog, active bookings, and cancelled
+bookings. It contains every feature the user can interact with from the menu.
+
+FIELDS (all private)
+--------------------
+  movies             Movie[]    Fixed-size array of 7 Movie objects
+  snacks             Snack[]    Fixed-size array of 13 Snack objects
+  bookings           ArrayList  Dynamic list of active Booking objects
+  cancelledBookings  ArrayList  Dynamic list of cancelled Booking objects
+  bookingCounter     int        Counter used to generate unique booking IDs
+
+CONSTRUCTOR
+-----------
+  public Theater()
+  
+  Runs four private setup methods in order:
+    1. InitialiseMovies()       — populates the movies array
+    2. InitialiseSnacks()       — populates the snacks array
+    3. LoadPreloadedBookings()  — adds 5 active bookings with real data
+    4. LoadCancelledBookings()  — adds 3 cancelled bookings to history
+
+PRIVATE SETUP METHODS
+---------------------
+  private void InitialiseMovies()
+    Creates 7 Movie objects and assigns them to the movies[] array.
+
+  private void InitialiseSnacks()
+    Creates 13 Snack objects (Popcorn, Drinks, Snacks) and assigns them
+    to the snacks[] array.
+
+  private void LoadPreloadedBookings()
+    Creates 5 Booking objects with South African customer names, assigns
+    snacks, deducts seats from the corresponding movies, and adds each
+    booking to the bookings ArrayList.
+
+  private void LoadCancelledBookings()
+    Creates 3 Booking objects, sets IsCancelled = true on each, and adds
+    them to the cancelledBookings ArrayList. Their seats are NOT deducted
+    from movies because cancellations restore seats.
+
+INTERNAL METHOD
+---------------
+  internal string GenerateBookingID()
+    Increments bookingCounter and returns a string like "BK1001".
+    Marked internal — available within the assembly but not externally.
+
+PRIVATE HELPER METHODS
+----------------------
+  private double DetermineDiscount(string customerName, int tickets)
+    Displays a discount menu and uses a switch statement to return the
+    correct discount percentage:
+      "1" — Student       : 15%
+      "2" — Senior Citizen: 20%
+      "3" — Group (5+)    : 10% (only if ticketCount >= 5, validated with if)
+      "4" — No discount   : 0%
+
+  private string CollectPaymentMethod(double amountDue)
+    Displays a payment menu and uses a switch statement to handle:
+      "1" — Cash   : prompts for cash amount, calculates change with if/else
+      "2" — Card   : confirms authorisation
+      "3" — Crypto : confirms on-chain payment
+    Returns the chosen method as a string.
+
+  private void OrderSnacks(Booking booking)
+    Runs a while loop letting the user add snacks one at a time by snack ID.
+    For each iteration: displays the snack menu, reads an ID, searches the
+    snacks array with a for loop, validates input with if statements, and
+    calls booking.AddSnack() to attach the item.
+
+PUBLIC MENU METHODS
+-------------------
+  public void DisplayAllMovies()
+    Uses a for loop to iterate through the movies[] array. Uses if to skip
+    fully booked movies. Calls movie.DisplayInfo() for each available film.
+
+  public void BookTickets()
+    Full booking flow:
+      - Calls DisplayAllMovies()
+      - Validates user input with if-else
+      - Calls movie.HasSeatsAvailable() to check seats (if)
+      - Calls DetermineDiscount() for discount selection
+      - Creates a new Booking object
+      - Optionally calls OrderSnacks() if user wants snacks
+      - Calls CollectPaymentMethod() for payment
+      - Deducts seats and adds booking to bookings ArrayList
+
+  public void ViewAllBookings()
+    Uses a for loop to iterate through the bookings ArrayList and calls
+    DisplayInfo() on each Booking object.
+
+  public void ViewCancelledBookings()
+    Uses a for loop to iterate through the cancelledBookings ArrayList and
+    calls DisplayInfo() on each cancelled Booking.
+
+  public void CancelBooking()
+    Searches the bookings ArrayList with a for loop and if comparison.
+    If found, confirms with the user, sets IsCancelled = true, restores
+    seats to the movie, removes the booking from bookings using
+    ArrayList.Remove(), and moves it to cancelledBookings.
+
+  public void SearchByGenre()
+    Uses a for loop to iterate through movies[] and an if statement to
+    compare genres (case-insensitive). Displays matching movies.
+
+  public void ViewSnackMenu()
+    Uses a for loop to iterate through snacks[] and calls snack.DisplayInfo()
+    for each item.
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+  - Encapsulation     : all fields private
+  - Composition       : Theater OWNS Movie[], Snack[], and ArrayLists of Bookings
+  - Access modifiers  : public (menu methods), private (fields + helpers),
+                        internal (GenerateBookingID)
+  - Control flow      : if-else, switch, for, while — ALL FOUR used here
+  - Data structures   : Array (movies, snacks), ArrayList (bookings, cancelled)
+
+
+================================================================================
+8. CLASS: Program
+   File: Program.cs
+================================================================================
+
+PURPOSE
+-------
+The entry point of the application. Contains the Main() method which C#
+automatically runs when the program starts. Its only job is to create a
+Theater object and drive the main menu loop.
+
+METHODS
+-------
+  static void Main(string[] args)
+    Creates one instance of Theater (which triggers all seed data loading).
+    Runs a while loop that keeps the program running until the user exits.
+    Inside the loop it calls DisplayMenu(), reads user input, and uses a
+    switch statement to call the correct Theater method.
+
+  private static void DisplayMenu()
+    Prints the 8-option menu to the console. Private and static because
+    it only serves the Main method in this class.
+
+MENU OPTIONS
+------------
+  1. View All Movies          -> theater.DisplayAllMovies()
+  2. Book Tickets             -> theater.BookTickets()
+  3. View Active Bookings     -> theater.ViewAllBookings()
+  4. Cancel Booking           -> theater.CancelBooking()
+  5. Search Movies by Genre   -> theater.SearchByGenre()
+  6. View Snack Bar Menu      -> theater.ViewSnackMenu()
+  7. View Cancelled Bookings  -> theater.ViewCancelledBookings()
+  8. Exit                     -> sets running = false, exits while loop
+
+OOP CONCEPTS DEMONSTRATED
+--------------------------
+  - Access modifiers  : private (DisplayMenu), static (both methods)
+  - Control flow      : while loop (main program loop), switch (menu routing)
+
+
+================================================================================
+9. OOP CONCEPTS USED
+================================================================================
+
+9.1 ACCESS MODIFIERS
+--------------------
+All four required access modifiers are present in the project:
+
+  PUBLIC
+  Used for anything that needs to be accessible from another class.
+  Examples:
+    - All properties (Movie.Title, Booking.BookingID, Snack.Price, etc.)
+    - All display methods (Movie.DisplayInfo, Booking.DisplayInfo, etc.)
+    - All Theater menu methods (BookTickets, CancelBooking, etc.)
+    - Booking.AddSnack(), Booking.GrandTotal()
+
+  PRIVATE
+  Used for fields and internal helper methods that should not be touched
+  from outside the class.
+  Examples:
+    - All backing fields in every class (title, price, bookingID, etc.)
+    - Booking.TicketSubtotal(), Booking.SnackSubtotal()
+    - Theater.InitialiseMovies(), Theater.InitialiseSnacks()
+    - Theater.LoadPreloadedBookings(), Theater.LoadCancelledBookings()
+    - Theater.DetermineDiscount(), Theater.CollectPaymentMethod()
+    - Theater.OrderSnacks()
+    - Program.DisplayMenu()
+
+  PROTECTED
+  Used for methods that the current class uses internally AND that a future
+  subclass should be able to access or override.
+  Examples:
+    - Movie.GetMovieSummary()        — a subclass like PremiumMovie could use this
+    - Snack.GetSnackLabel()          — marked virtual; a ComboSnack could override
+    - Booking.GetBookingType()       — marked virtual; a VIPBooking could override
+
+  INTERNAL
+  Used for methods that are accessible anywhere within the same project
+  (assembly) but not from outside it.
+  Examples:
+    - Movie.HasSeatsAvailable()      — used by Theater.BookTickets()
+    - Snack.IsInCategory()           — available for Theater filtering
+    - Booking.BelongsTo()            — available for Theater lookups
+    - Theater.GenerateBookingID()    — called within Theater itself
+
+
+9.2 CONTROL STATEMENTS
+-----------------------
+All four required control statements appear in the project:
+
+  IF / ELSE
+  Used for all decision-making and validation throughout the program.
+  Examples:
+    - Checking seat availability before booking
+    - Validating user input (empty name, invalid number, etc.)
+    - Checking if cash given is sufficient
+    - Checking if group discount threshold is met (tickets >= 5)
+    - Conditionally showing discount/snack lines in DisplayInfo
+
+  SWITCH
+  Used for multi-way branching on user menu selections.
+  Examples:
+    - Program.Main() — routes the 8 main menu options
+    - Theater.DetermineDiscount() — routes the 4 discount options
+    - Theater.CollectPaymentMethod() — routes the 3 payment options
+
+  FOR LOOP
+  Used to iterate through arrays and ArrayLists.
+  Examples:
+    - Theater.DisplayAllMovies() — loops through movies[] array
+    - Theater.ViewAllBookings() — loops through bookings ArrayList
+    - Theater.ViewCancelledBookings() — loops through cancelledBookings
+    - Theater.CancelBooking() — loops to find a booking by ID
+    - Theater.SearchByGenre() — loops through movies[] to find matches
+    - Theater.OrderSnacks() — loops through snacks[] to find by ID
+    - Theater.ViewSnackMenu() — loops through snacks[] to display
+    - Booking.SnackSubtotal() — loops through snackItems ArrayList
+
+  WHILE LOOP
+  Used for the main program loop and the snack ordering loop.
+  Examples:
+    - Program.Main() — while(running) keeps the menu active until exit
+    - Theater.OrderSnacks() — while(addingSnacks) lets user keep adding
+      snack items until they choose to stop
+
+
+9.3 DATA STRUCTURES
+--------------------
+Both required data structure types are used in the project:
+
+  ARRAY  (fixed-size, type-safe)
+  Used where the collection size is known and does not change at runtime.
+    - Movie[]  movies  in Theater  — 7 movies; catalog never changes at runtime
+    - Snack[]  snacks  in Theater  — 13 items; snack menu is fixed
+
+  ARRAYLIST  (dynamic, flexible size)
+  Used where items are added and removed at runtime.
+    - ArrayList bookings           in Theater  — grows as customers book,
+                                                 shrinks when bookings cancelled
+    - ArrayList cancelledBookings  in Theater  — grows as bookings are cancelled
+    - ArrayList snackItems         in Booking  — built up as snacks are added
+                                                 to a specific booking
+
+
+================================================================================
+10. CLASS RELATIONSHIPS & HOW THEY CONNECT
+================================================================================
+
+This section explains how each class relates to the others. There are two
+main types of relationship used: COMPOSITION (has-a) and DEPENDENCY (uses-a).
+
+There is no direct class INHERITANCE (extends) in the current codebase —
+the protected virtual methods exist to ENABLE inheritance if the project
+is extended in future.
+
+  COMPOSITION (one class owns or contains another)
+  ------------------------------------------------
+
+  Theater HAS-A Movie[]
+    Theater creates and owns all 7 Movie objects. The movies[] array lives
+    inside Theater. When Theater is created, it calls InitialiseMovies() to
+    populate it. Theater reads and modifies Movie.AvailableSeats directly
+    when bookings are made or cancelled.
+
+  Theater HAS-A Snack[]
+    Theater creates and owns all 13 Snack objects. The snacks[] array lives
+    inside Theater. Theater's snack menu methods loop through this array.
+
+  Theater HAS-A ArrayList (bookings)
+    Theater creates and owns the bookings ArrayList. All active Booking
+    objects live here. Theater adds to it in BookTickets() and removes
+    from it in CancelBooking().
+
+  Theater HAS-A ArrayList (cancelledBookings)
+    Same idea — cancelled Booking objects are moved here when a booking
+    is cancelled.
+
+  Booking HAS-A Movie
+    Every Booking holds a reference to the Movie it is for. This lets
+    Booking.DisplayInfo() show the movie title and genre, and lets
+    Booking.TicketSubtotal() multiply the movie price by ticket count.
+    It also allows Theater.CancelBooking() to do:
+        foundBooking.Movie.AvailableSeats += foundBooking.NumberOfTickets
+    which restores the seats directly through the reference.
+
+  Booking HAS-A ArrayList (snackItems)
+    Each Booking owns its own ArrayList of SnackOrder objects. This grows
+    every time Theater.OrderSnacks() calls booking.AddSnack().
+
+  SnackOrder HAS-A Snack
+    Every SnackOrder holds a reference to the Snack it represents, plus a
+    quantity. SnackOrder.LineTotal() multiplies snack.Price by quantity.
+
+
+  DEPENDENCY (one class uses another without owning it)
+  -----------------------------------------------------
+
+  Theater USES Booking
+    Theater creates Booking objects in BookTickets(), LoadPreloadedBookings(),
+    and LoadCancelledBookings(). It also calls booking.DisplayInfo() and
+    booking.AddSnack() and reads booking properties during cancellation.
+
+  Theater USES Movie
+    Theater calls movie.DisplayInfo() and movie.HasSeatsAvailable(), and
+    directly reads/sets movie.AvailableSeats.
+
+  Theater USES Snack
+    Theater calls snack.DisplayInfo() when showing the snack menu.
+    Theater.OrderSnacks() searches the snacks[] array and passes a found
+    Snack reference to booking.AddSnack().
+
+  Program USES Theater
+    Program creates one Theater instance and calls its public methods
+    in response to menu input. Program does not access Movie, Snack, or
+    Booking directly — it only ever talks to Theater.
+
+  Booking USES Snack (indirectly, through SnackOrder)
+    When Theater calls booking.AddSnack(snack, qty), Booking wraps that
+    Snack inside a new SnackOrder. Booking itself does not create Snack
+    objects — it receives them from Theater.
+
+
+================================================================================
+11. HOW INFORMATION FLOWS THROUGH THE PROGRAM
+================================================================================
+
+This section traces the exact path data takes for the two most important
+operations: booking a ticket and cancelling a booking.
+
+  BOOKING A TICKET (Menu Option 2)
+  ---------------------------------
+
+  Step 1:  User selects option "2" in Program.Main()
+           -> switch routes to theater.BookTickets()
+
+  Step 2:  Theater.BookTickets() calls Theater.DisplayAllMovies()
+           -> for loop iterates through movies[] array
+           -> calls movie.DisplayInfo(i+1) for each available movie
+
+  Step 3:  User enters a movie number and ticket count
+           -> if-else validates the input
+           -> movie.HasSeatsAvailable(ticketCount) is called (internal method)
+              returns true/false to confirm seats exist
+
+  Step 4:  Theater.BookTickets() calls Theater.DetermineDiscount()
+           -> switch presents discount options to user
+           -> returns a double (0.0, 10.0, 15.0, or 20.0)
+
+  Step 5:  A new Booking object is created:
+           new Booking(bookingID, selectedMovie, customerName, ticketCount,
+                       "Cash", discount)
+           -> Booking constructor sets all fields, creates empty snackItems
+              ArrayList, records the current DateTime
+
+  Step 6:  If user wants snacks, Theater.OrderSnacks(booking) is called
+           -> while loop runs
+           -> for loop searches snacks[] for matching SnackID
+           -> booking.AddSnack(snack, qty) is called
+              -> inside Booking: new SnackOrder(snack, qty) is created
+                 and added to snackItems ArrayList
+
+  Step 7:  Theater.CollectPaymentMethod(booking.GrandTotal()) is called
+           -> booking.GrandTotal() is called:
+              calls TicketSubtotal() + SnackSubtotal()
+              SnackSubtotal() uses a for loop over snackItems
+              discount is applied to the combined total
+           -> switch handles Cash/Card/Crypto
+           -> returns chosen method string
+
+  Step 8:  booking.PaymentMethod is set
+           selectedMovie.AvailableSeats is decreased
+           Booking is added to bookings ArrayList
+
+  Step 9:  booking.DisplayInfo() is called to print the full receipt
+
+
+  CANCELLING A BOOKING (Menu Option 4)
+  --------------------------------------
+
+  Step 1:  User selects option "4" in Program.Main()
+           -> switch routes to theater.CancelBooking()
+
+  Step 2:  User enters a Booking ID
+           -> for loop searches bookings ArrayList
+           -> if comparison: b.BookingID.ToUpper() == bookingID
+           -> found Booking reference is stored
+
+  Step 3:  booking.DisplayInfo() is called to show what will be cancelled
+
+  Step 4:  User confirms with "yes"
+           -> found.Movie.AvailableSeats += found.NumberOfTickets
+              (seats restored via the Movie reference inside Booking)
+           -> found.IsCancelled = true
+           -> bookings.Remove(found)    — removed from active list
+           -> cancelledBookings.Add(found) — moved to history
+
+
+================================================================================
+12. INHERITANCE & EXTENSIBILITY NOTES
+================================================================================
+
+The current codebase does not use inheritance directly — all classes stand
+on their own. However, three classes are deliberately designed to be extended:
+
+  Movie  ->  possible subclass: PremiumMovie
+    GetMovieSummary() is protected so PremiumMovie could call it internally.
+    A PremiumMovie might add a surcharge or IMAX flag on top of the base price.
+
+  Snack  ->  possible subclass: ComboSnack
+    GetSnackLabel() is protected virtual. ComboSnack could override it to
+    return a label like "[COMBO] Large Popcorn + Cold Drink".
+    A ComboSnack might also bundle two snack items at a discounted price.
+
+  Booking  ->  possible subclass: GroupBooking or VIPBooking
+    GetBookingType() is protected virtual. Right now it returns
+    "Standard Booking". A GroupBooking override could return "Group Booking"
+    and a VIPBooking could return "VIP Booking" and add premium perks.
+
+  Example of what inheritance would look like (not in the current code):
+
+      public class VIPBooking : Booking
+      {
+          public VIPBooking(string bookingID, Movie movie, string name, int qty)
+              : base(bookingID, movie, name, qty, "Card", 10.0)
+          { }
+
+          protected override string GetBookingType()
+          {
+              return "VIP Booking — complimentary snacks included";
+          }
+      }
+
+  In this example, VIPBooking INHERITS everything from Booking (all fields,
+  all methods, GrandTotal, DisplayInfo, etc.) and only OVERRIDES the one
+  method that needs to behave differently. The base() call in the constructor
+  passes data up to the parent Booking constructor.
+
+  The pattern used here is a standard C# inheritance pattern:
+    - The parent class (Booking) marks the method as "protected virtual"
+      meaning "subclasses are allowed to replace this"
+    - The child class uses "override" to replace the behaviour
+    - Everything else from the parent is automatically available
+
+
+================================================================================
+END OF DOCUMENTATION
+Document ID : LUB-AC-003
+================================================================================
