@@ -1,0 +1,579 @@
+Stand Up Meeting: 20 May 2026
+
+1.Your Task for Yesterday
+
+-Was Module 7-9
+
+2.What You Managed to Complete
+
+-Modules 7 - 9
+
+3.Outstanding Work Items
+-Just the assignent we recieved today
+
+4.Your Blockers
+-I had no blockers
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+-To complete the assignment and also revise modules 8 and 9
+
+7.Questions
+-None.
+
+=======================================================================================================
+
+Stand Up Meeting: 21 May 2026
+
+1.Your Task for Yesterday
+
+-Revised module 8-9
+-Started the rough draft of the assignment in a Pseudo Code Manner
+
+2.What You Managed to Complete
+
+-Module 8 and 9 are done just need revision, in terms of autonomy.
+
+3.Outstanding Work Items
+-Just the assignent is the only outstanding tasks.
+
+4.Your Blockers
+-I had no blockers
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+-To complete the assignment.
+
+7.Questions
+-None.
+
+=======================================================================================================
+Stand Up Meeting: 22 May 2026
+
+1.Your Task for Yesterday
+
+-Revised module 8-9
+-Doing the rough draft of the assignment and starting the EmployeeClass and Login
+-Looking at the concepts of Assignment 2
+
+2.What You Managed to Complete
+
+-Rough Draft planning for Assignment 1.
+- EmployeeClass of the Assignment and it's contents
+
+3.Outstanding Work Items
+-Just the assignents 1 and 2 is the only outstanding tasks.
+
+4.Your Blockers
+-I had no blockers on the technical side.
+- I had a problem with linking data from the registration to verify on login
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+-To complete the assignment 1 and 2 over this weekend.
+
+7.Questions
+-AzureOps do we use our work emails and do we host our assignments as public or select people with in the organisation to use.
+- Can
+
+=======================================================================================================
+
+Stand Up Meeting: 25 May 2026
+
+1.Your Task for Yesterday
+
+-Finishing the EmployeeClass and Login Assignment 1
+-Looking at the concepts of Assignment 2
+
+2.What You Managed to Complete
+
+- Completed Assignment 1.
+- Assignment 2
+
+3.Outstanding Work Items
+- Just the assignent 2 is the only outstanding tasks.
+
+4.Your Blockers
+- My speakers don't work.
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+-To complete assignment 2 over today or this week.
+
+7.Questions
+- When are gonna do presentation for Assignment 2 and how much time will each person given.
+- Are we gonna present for assignment 1, if so when?? 
+
+=======================================================================================================
+
+Stand Up Meeting: 26 May 2026
+
+1.Your Task for Yesterday
+
+- Looking at the concepts of Assignment 2
+- Preparing myself to present assignment 1 and 2
+- Revised C# lessons
+
+2.What You Managed to Complete
+
+- Assignment 2
+
+3.Outstanding Work Items
+- Just the assignent 2 is the only outstanding task in terms of preparation for presentation.
+
+4.Your Blockers
+- My speakers don't work.
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+- To do assignment 3.
+- To review assignment 2 as well for improvements.
+
+7.Questions
+- None
+
+=======================================================================================================
+
+Stand Up Meeting: 27 May 2026
+
+1.Your Task for Yesterday
+
+- Starting rough draft of Assignment 3
+- Preparing myself to present assignment 1 and 2
+- Revised C# lessons
+
+2.What You Managed to Complete
+- Assignment 2
+
+3.Outstanding Work Items
+- Just the assignent 2 is the only outstanding task in terms of preparation for presentation.
+- Assignment 3
+
+4.Your Blockers
+- My speakers don't work.
+
+5.Assistance Required
+-So far none, I just need to analyze the document
+
+6.Tasks for the Current Day
+- To do assignment 3.
+- To review assignment 2 as well for improvements.
+
+7.Questions
+- None
+
+=======================================================================================================
+
+Stand Up Meeting: 28 May 2026
+
+1.Your Task for Yesterday
+
+- Starting Assignment 3, the first class.
+- Preparing myself to present assignment 1 and 2
+- Revised C# lessons
+
+2.What You Managed to Complete
+- Submitted Assignment 2
+- Rough draft planning for assignment 3
+
+3.Outstanding Work Items
+- Just the assignents 1 and 2 is the only outstanding task in terms of preparation for presentation.
+- Assignment 3
+
+4.Your Blockers
+- My speakers don't work.
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To do assignment 3.
+
+7.Questions
+- None
+
+=======================================================================================================
+
+Stand Up Meeting: 29 May 2026
+
+1.Your Task for Yesterday
+
+- working on Assignment 3, and fixing errors where needed.
+- Preparing myself to present assignment 1 and 2
+
+2.What You Managed to Complete
+- nothing so far
+- Rough draft planning for assignment 3
+
+3.Outstanding Work Items
+- Just the assignents 1 and 2 is the only outstanding task in terms of preparation for presentation.
+- Assignment 3
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To work assignment 3.
+
+7.Questions
+- None
+
+==============================================================================================================
+
+Stand Up Meeting: 01 June 2026
+
+1.Your Task for Yesterday
+
+- working on Assignment 3, and fixing errors where needed.
+- Preparing myself to present assignment 1 and 2
+
+2.What You Managed to Complete
+- There's 3 classes I need to do, I'm done with 2
+- Rough draft planning for assignment 3
+
+3.Outstanding Work Items
+- Just the assignents 1 and 2 is the only outstanding task in terms of preparation for presentation.
+- Assignment 3 the final class and testing if the program works
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To work assignment 3.
+
+7.Questions
+- None
+
+==============================================================================================================
+
+Stand Up Meeting: 02 June 2026
+
+1.Your Task for Yesterday
+
+- working on Assignment 3, and fixing errors where needed.
+
+2.What You Managed to Complete
+- Assignment 3
+
+3.Outstanding Work Items
+- Assignment 3 the final class and testing if the program works
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To work assignment 3.
+
+7.Questions
+- None
+
+==============================================================================================================
+
+Stand Up Meeting: 04 June 2026
+
+1.Your Task for Yesterday
+
+- Researching on Testing Fundamentals and Types of Testing
+- STLC
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Researching TestCase Development
+- Testing Techniques
+- Test Management & Control
+
+7.Questions
+- None
+
+==============================================================================================================
+
+Stand Up Meeting: 08 June 2026
+
+1.Your Task for Yesterday
+- 7 Types of Software testing principles
+- V-Model testing
+
+2.What You Managed to Complete
+- 7 Types of Software testing principles
+- V-Model testing
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Researching TestCase Development
+- Testing Techniques
+- Test Management & Control
+
+7.Questions
+- None
+
+========================================================================================================
+
+Stand Up Meeting: 09 June 2026
+
+1.Your Task for Yesterday
+- 6 Phases of STLC
+- Reviewing software testing Fundamentals and some practical examples
+- Reviewing code for C#
+
+2.What You Managed to Complete
+- 6 Phases of STLC
+- V-Model testing
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Researching TestCase Development
+- Testing Techniques
+- Test Management & Control
+
+7.Questions
+- None
+
+========================================================================================================
+
+Stand Up Meeting: 10 June 2026
+
+1.Your Task for Yesterday
+- Presentation
+- Viewing assignment from Isaac
+
+2.What You Managed to Complete
+- Presentation
+- Reading Test Case Development
+
+3.Outstanding Work Items
+- Assignment 4
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Finishing assignment 4
+
+7.Questions
+- None
+
+========================================================================================================
+
+Stand Up Meeting: 11 June 2026
+
+1.Your Task for Yesterday
+- Doing the assignment from Isaac
+
+2.What You Managed to Complete
+- The assignment is complete
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Me, Luthando and Nyeleti submit our assignment at 2pm
+
+7.Questions
+- None
+
+========================================================================================================
+
+Stand Up Meeting: 12 June 2026
+
+1.Your Task for Yesterday
+- Submitting my aassignment
+- Reviewing my notes from Isaac's lesson on Test Planning.
+
+2.What You Managed to Complete
+- The assignment is complete
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- prepare for today's lessons
+- Test Case Development and the rest of the 6 Phases
+- Revising the study materials from Guru99
+
+7.Questions
+- None
+
+========================================================================================================
+
+Stand Up Meeting: 17 June 2026
+
+1.Your Task for Yesterday
+- Finishing up Assignment for Phase 2
+- Practicing Java on VS Code.
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- Phase 2 Test Planning Assignment
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Attend today's lesson
+- Complete Phase 2 assignment and submit
+- Continue personal Java Lessons
+
+7.Questions
+- None
+
+========================================================================================================
+
+Stand Up Meeting: 18 June 2026
+
+1.Your Task for Yesterday
+- Submitted Phase 2 Assignment
+- Practicing Data types and input function on VS Code.
+
+2.What You Managed to Complete
+- Phase 2 Assignment
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Attend today's lesson
+- Continue personal Java Lessons
+- Reviewing STLC Phase 3 Test Case Development
+
+7.Questions
+- None
+
+======================================================================================================================
+
+Stand Up Meeting: 19 June 2026
+
+1.Your Task for Yesterday
+- Attend MICT SETA site visit from Thabang
+- Installing Java Development Kit and practicing code
+- Attended a STLC Phase 3 Test Case Development Lesson
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- My speakers don't work.
+- Battery
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Continue personal Java lessons on Operators and if Statements
+- Continue STLC Phase 4 and 5 Lessons
+
+7.Questions
+- None
+
+======================================================================================================================
+
+Stand Up Meeting: 22 June 2026
+
+1.Your Task for Yesterday
+- Completing STLC Phase 3 Assignment both Scenario and Test Case Development
+
+2.What You Managed to Complete
+- Phase 3 complete
+
+3.Outstanding Work Items
+- Just to finalise my work with my group and submit
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Continue personal Java lessons on Operators and if Statements
+- Continue revision STLC Phase 4, 5 and 6 Lessons
+- Attend today's lession if applicable
+- Finalizing our group work
+
+7.Questions
+- None

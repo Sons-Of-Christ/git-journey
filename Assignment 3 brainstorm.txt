@@ -1,0 +1,35 @@
+Assignment 3 Requirements
+
+Project 1: Movie Ticket Booking System
+Core Requirements:
+Classes to create:
+• Movie.cs - Represents a movie (Title, Genre, Duration, Price, AvailableSeats)
+• Booking.cs - Represents a ticket booking (BookingID, Movie, CustomerName, NumberOfTickets, BookingTime)
+• Theater.cs - Manages movies and bookings (main logic class)
+Features to implement:
+Feature
+Required Concepts
+Display all available movies
+for loop, Array
+Book tickets for a movie
+if for seat availability, ArrayList for bookings
+View all bookings
+for loop, ArrayList
+Cancel a booking
+if to validate, ArrayList removal
+Search movies by genre
+if, for loop
+Sample Menu Structure:
+text
+MOVIE TICKET BOOKING SYSTEM
+1. View All Movies
+2. Book Tickets
+3. View My Bookings
+4. Cancel Booking
+5. Search Movies by Genre
+6. Exit
+Additional Requirements:
+• Validate seat availability before booking
+• Prevent booking more seats than available
+• Generate a unique booking ID for each booking
+• Show total price calculation

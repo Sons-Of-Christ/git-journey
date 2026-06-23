@@ -1,0 +1,18 @@
+===================== EA Development ============================
+
+1. Scalp / IntraDay EA
+- Technical Analysis: To Identify the trend. We will use EMAs 20, 50 and 200 on 5m, 15m and 1h charts. 
+
+- Entry confirmation Support and Resistance or Supply and Demand for either 1m or 5m.
+
+- Entries Execution, Either on S&R for 1m or 5m Chart on Pullback or Breakout
+
+
+2. Swing EA
+- Technical Analysis: To Identify the trend. We will use EMAs 20, 50 and 200 on 1h, 4h and 1D charts. 
+
+- Entry confirmation Support and Resistance or Supply and Demand for either 15 or 1h.
+
+- Entries Execution, Either on S&R for 15m or 1h on Pullback or Breakout
+
+- Unlike the Scalp the swing EA can enter anytime and any session

@@ -1,0 +1,206 @@
+//@version=5
+// ============================================================
+//  Session Momentum Alignment Indicator
+//  Sessions: Tokyo (02:00), London (09:00), NY (16:00), NY Noon (21:00)
+//  All times in SAST / GMT+2 | H1 charts
+// ============================================================
+indicator("Session Momentum Alignment (SAST)", shorttitle="SMA", overlay=true)
+
+// ─────────────────────────────────────────
+// INPUTS
+// ─────────────────────────────────────────
+i_lookback    = input.int(2,    "Pre-Open Candle Lookback",   minval=1, maxval=5)
+i_londonHour  = input.int(9,   "London Open Hour (SAST)",    minval=0, maxval=23)
+i_nyHour      = input.int(16,   "New York Open Hour (SAST)",  minval=0, maxval=23)
+i_tokyoHour   = input.int(2,    "Tokyo Open Hour (SAST)",     minval=0, maxval=23)
+i_noonHour    = input.int(21,   "NY Noon Session Hour (SAST)", minval=0, maxval=23)
+i_showLabels  = input.bool(true, "Show Session Labels")
+i_showStats   = input.bool(true, "Show Stats Table")
+i_londonColor = input.color(color.new(#2196F3, 0), "London Colour")
+i_nyColor     = input.color(color.new(#4CAF50, 0), "New York Colour")
+i_tokyoColor  = input.color(color.new(#E040FB, 0), "Tokyo Colour")
+i_noonColor   = input.color(color.new(#00BCD4, 0), "NY Noon Colour")
+
+// ─────────────────────────────────────────
+// SAST HOUR  (UTC bar time + 2 hrs)
+// ─────────────────────────────────────────
+sastHour = hour(time + 2 * 60 * 60 * 1000, "UTC")
+
+isLondon = (sastHour == i_londonHour)
+isNY     = (sastHour == i_nyHour)
+isTokyo  = (sastHour == i_tokyoHour)
+isNoon   = (sastHour == i_noonHour)
+
+// ─────────────────────────────────────────
+// PRE-OPEN ALIGNMENT
+// ─────────────────────────────────────────
+allBullBefore() =>
+    r = true
+    for j = 1 to i_lookback
+        if close[j] <= open[j]
+            r := false
+    r
+
+allBearBefore() =>
+    r = true
+    for j = 1 to i_lookback
+        if close[j] >= open[j]
+            r := false
+    r
+
+preIsBull  = allBullBefore()
+preIsBear  = allBearBefore()
+preAligned = preIsBull or preIsBear
+openBull   = close > open
+openBear   = close < open
+
+// ─────────────────────────────────────────
+// SIGNALS — all 4 sessions
+// ─────────────────────────────────────────
+londonBullAlign = isLondon and preIsBull and openBull
+londonBearAlign = isLondon and preIsBear and openBear
+londonMiss      = isLondon and preAligned and not (londonBullAlign or londonBearAlign)
+
+nyBullAlign = isNY and preIsBull and openBull
+nyBearAlign = isNY and preIsBear and openBear
+nyMiss      = isNY and preAligned and not (nyBullAlign or nyBearAlign)
+
+tokyoBullAlign = isTokyo and preIsBull and openBull
+tokyoBearAlign = isTokyo and preIsBear and openBear
+tokyoMiss      = isTokyo and preAligned and not (tokyoBullAlign or tokyoBearAlign)
+
+noonBullAlign = isNoon and preIsBull and openBull
+noonBearAlign = isNoon and preIsBear and openBear
+noonMiss      = isNoon and preAligned and not (noonBullAlign or noonBearAlign)
+
+// ─────────────────────────────────────────
+// ARROWS
+// ─────────────────────────────────────────
+plotshape(londonBullAlign, title="London Bull",  style=shape.triangleup,   location=location.belowbar, color=i_londonColor, size=size.normal)
+plotshape(londonBearAlign, title="London Bear",  style=shape.triangledown, location=location.abovebar, color=i_londonColor, size=size.normal)
+plotshape(nyBullAlign,     title="NY Bull",      style=shape.triangleup,   location=location.belowbar, color=i_nyColor,     size=size.normal)
+plotshape(nyBearAlign,     title="NY Bear",      style=shape.triangledown, location=location.abovebar, color=i_nyColor,     size=size.normal)
+plotshape(tokyoBullAlign,  title="Tokyo Bull",   style=shape.triangleup,   location=location.belowbar, color=i_tokyoColor,  size=size.normal)
+plotshape(tokyoBearAlign,  title="Tokyo Bear",   style=shape.triangledown, location=location.abovebar, color=i_tokyoColor,  size=size.normal)
+plotshape(noonBullAlign,   title="NY Noon Bull", style=shape.triangleup,   location=location.belowbar, color=i_noonColor,   size=size.normal)
+plotshape(noonBearAlign,   title="NY Noon Bear", style=shape.triangledown, location=location.abovebar, color=i_noonColor,   size=size.normal)
+
+// ─────────────────────────────────────────
+// BACKGROUND TINTS
+// ─────────────────────────────────────────
+bgcolor(isLondon ? color.new(i_londonColor, 88) : na, title="London BG")
+bgcolor(isNY     ? color.new(i_nyColor,     88) : na, title="NY BG")
+bgcolor(isTokyo  ? color.new(i_tokyoColor,  88) : na, title="Tokyo BG")
+bgcolor(isNoon   ? color.new(i_noonColor,   88) : na, title="NY Noon BG")
+
+// ─────────────────────────────────────────
+// LABELS
+// ─────────────────────────────────────────
+if i_showLabels
+    if isLondon
+        label.new(bar_index, high + syminfo.mintick * 20, text="LON 09:00",  color=color.new(i_londonColor,15), textcolor=color.white, style=label.style_label_down, size=size.tiny)
+    if isNY
+        label.new(bar_index, high + syminfo.mintick * 20, text="NY  16:00",  color=color.new(i_nyColor,    15), textcolor=color.white, style=label.style_label_down, size=size.tiny)
+    if isTokyo
+        label.new(bar_index, high + syminfo.mintick * 20, text="TOK 02:00",  color=color.new(i_tokyoColor, 15), textcolor=color.white, style=label.style_label_down, size=size.tiny)
+    if isNoon
+        label.new(bar_index, high + syminfo.mintick * 20, text="NYN 21:00",  color=color.new(i_noonColor,  15), textcolor=color.white, style=label.style_label_down, size=size.tiny)
+
+// ─────────────────────────────────────────
+// STATS COUNTERS
+// ─────────────────────────────────────────
+var int lBull=0,  lBear=0,  lMiss=0
+var int nBull=0,  nBear=0,  nMiss=0
+var int tBull=0,  tBear=0,  tMiss=0
+var int nnBull=0, nnBear=0, nnMiss=0
+
+if londonBullAlign
+    lBull  += 1
+if londonBearAlign
+    lBear  += 1
+if londonMiss
+    lMiss  += 1
+if nyBullAlign
+    nBull  += 1
+if nyBearAlign
+    nBear  += 1
+if nyMiss
+    nMiss  += 1
+if tokyoBullAlign
+    tBull  += 1
+if tokyoBearAlign
+    tBear  += 1
+if tokyoMiss
+    tMiss  += 1
+if noonBullAlign
+    nnBull += 1
+if noonBearAlign
+    nnBear += 1
+if noonMiss
+    nnMiss += 1
+
+lT  = lBull  + lBear  + lMiss
+nT  = nBull  + nBear  + nMiss
+tT  = tBull  + tBear  + tMiss
+nnT = nnBull + nnBear + nnMiss
+
+lPct  = lT  > 0 ? math.round(100.0*(lBull +lBear) /lT,  1) : 0.0
+nPct  = nT  > 0 ? math.round(100.0*(nBull +nBear) /nT,  1) : 0.0
+tPct  = tT  > 0 ? math.round(100.0*(tBull +tBear) /tT,  1) : 0.0
+nnPct = nnT > 0 ? math.round(100.0*(nnBull+nnBear)/nnT, 1) : 0.0
+
+pctColor(v) =>
+    v >= 60 ? color.new(#4CAF50,0) : v >= 45 ? color.yellow : color.new(#F44336,0)
+
+// ─────────────────────────────────────────
+// STATS TABLE
+// ─────────────────────────────────────────
+if i_showStats and barstate.islast
+    var table t = table.new(position.top_right, 6, 6,
+         border_width=1, border_color=color.new(color.gray,50),
+         bgcolor=color.new(color.black,20))
+
+    // Header
+    table.cell(t,0,0,"Session (SAST)", text_color=color.white, bgcolor=color.new(color.gray,40), text_size=size.small)
+    table.cell(t,1,0,"Bull ✓",         text_color=color.white, bgcolor=color.new(color.gray,40), text_size=size.small)
+    table.cell(t,2,0,"Bear ✓",         text_color=color.white, bgcolor=color.new(color.gray,40), text_size=size.small)
+    table.cell(t,3,0,"Miss ✗",         text_color=color.white, bgcolor=color.new(color.gray,40), text_size=size.small)
+    table.cell(t,4,0,"Total",          text_color=color.white, bgcolor=color.new(color.gray,40), text_size=size.small)
+    table.cell(t,5,0,"Align %",        text_color=color.white, bgcolor=color.new(color.gray,40), text_size=size.small)
+
+    // London
+    table.cell(t,0,1,"London  09:00", text_color=i_londonColor, text_size=size.small)
+    table.cell(t,1,1,str.tostring(lBull),  text_color=color.new(#4CAF50,0), text_size=size.small)
+    table.cell(t,2,1,str.tostring(lBear),  text_color=color.new(#F44336,0), text_size=size.small)
+    table.cell(t,3,1,str.tostring(lMiss),  text_color=color.gray,           text_size=size.small)
+    table.cell(t,4,1,str.tostring(lT),     text_color=color.white,          text_size=size.small)
+    table.cell(t,5,1,str.tostring(lPct)+"%", text_color=pctColor(lPct),     text_size=size.small)
+
+    // New York
+    table.cell(t,0,2,"New York 16:00", text_color=i_nyColor, text_size=size.small)
+    table.cell(t,1,2,str.tostring(nBull),  text_color=color.new(#4CAF50,0), text_size=size.small)
+    table.cell(t,2,2,str.tostring(nBear),  text_color=color.new(#F44336,0), text_size=size.small)
+    table.cell(t,3,2,str.tostring(nMiss),  text_color=color.gray,           text_size=size.small)
+    table.cell(t,4,2,str.tostring(nT),     text_color=color.white,          text_size=size.small)
+    table.cell(t,5,2,str.tostring(nPct)+"%", text_color=pctColor(nPct),     text_size=size.small)
+
+    // Tokyo
+    table.cell(t,0,3,"Tokyo   02:00", text_color=i_tokyoColor, text_size=size.small)
+    table.cell(t,1,3,str.tostring(tBull),  text_color=color.new(#4CAF50,0), text_size=size.small)
+    table.cell(t,2,3,str.tostring(tBear),  text_color=color.new(#F44336,0), text_size=size.small)
+    table.cell(t,3,3,str.tostring(tMiss),  text_color=color.gray,           text_size=size.small)
+    table.cell(t,4,3,str.tostring(tT),     text_color=color.white,          text_size=size.small)
+    table.cell(t,5,3,str.tostring(tPct)+"%", text_color=pctColor(tPct),     text_size=size.small)
+
+    // NY Noon
+    table.cell(t,0,4,"NY Noon 21:00", text_color=i_noonColor, text_size=size.small)
+    table.cell(t,1,4,str.tostring(nnBull),  text_color=color.new(#4CAF50,0), text_size=size.small)
+    table.cell(t,2,4,str.tostring(nnBear),  text_color=color.new(#F44336,0), text_size=size.small)
+    table.cell(t,3,4,str.tostring(nnMiss),  text_color=color.gray,           text_size=size.small)
+    table.cell(t,4,4,str.tostring(nnT),     text_color=color.white,          text_size=size.small)
+    table.cell(t,5,4,str.tostring(nnPct)+"%", text_color=pctColor(nnPct),    text_size=size.small)
+
+    // Footer
+    table.cell(t,0,5,"Lookback: "+str.tostring(i_lookback)+" candles  |  Times in SAST (GMT+2)",
+         text_color=color.gray, text_size=size.tiny, bgcolor=color.new(color.black,40))
+    table.merge_cells(t,0,5,5,5)
