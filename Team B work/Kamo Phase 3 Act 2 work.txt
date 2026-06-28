@@ -1,0 +1,56 @@
+Kamo
+
+Step 2 – Define Test Objectives
+Teams must define:
+Examples:
+Validate business workflows
+Verify user access control
+Validate employee creation process
+Validate leave management functionality
+Ensure system usability
+Deliverable:
+Test Objectives Document
+
+Step 3 – Define Test Scope
+Teams must define:
+ 
+In Scope
+Examples:
+Login functionality
+Employee creation
+Leave application
+Search functionality
+ 
+Out of Scope
+Examples:
+Source code review
+Production deployment
+Load testing (if excluded)
+Interns must explain WHY items are out of scope.
+Deliverable:
+Scope Definition Document
+
+Step 7 – Test Data Planning
+Teams must define:
+Valid test data
+Invalid test data
+Boundary values
+Negative testing data
+Examples:
+Invalid login credentials
+Duplicate employee IDs
+Empty required fields
+Deliverable:
+Test Data Strategy Document
+
+Step 11 – Define Test Deliverables
+Teams must define all project outputs.
+Examples:
+Test Plan
+Test Cases
+RTM  
+Defect Reports
+Execution Reports
+Closure Report
+Deliverable:
+Deliverables Matrix

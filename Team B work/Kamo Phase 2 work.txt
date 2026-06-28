@@ -1,56 +1,53 @@
 Kamo
 
-Step 2 – Define Test Objectives
-Teams must define:
-Examples:
-Validate business workflows
-Verify user access control
-Validate employee creation process
-Validate leave management functionality
-Ensure system usability
-Deliverable:
-Test Objectives Document
+Part 3, Part 4, Part 6, Part 10
 
-Step 3 – Define Test Scope
-Teams must define:
- 
-In Scope
+Activity Part 3 – Positive Test Case Design
+Focus on valid system behavior.
 Examples:
-Login functionality
-Employee creation
-Leave application
-Search functionality
+Valid login
+Create employee successfully
+Apply leave successfully
+Add recruitment candidate
+Update profile information
  
-Out of Scope
-Examples:
-Source code review
-Production deployment
-Load testing (if excluded)
-Interns must explain WHY items are out of scope.
 Deliverable:
-Scope Definition Document
-
-Step 7 – Test Data Planning
-Teams must define:
-Valid test data
-Invalid test data
-Boundary values
-Negative testing data
+Positive Test Case Suite 
+ 
+Activity Part 4 – Negative Test Case Design
+Focus on system failures and validation.
 Examples:
 Invalid login credentials
-Duplicate employee IDs
-Empty required fields
+Empty username/password
+Invalid email format
+Missing mandatory fields
+Duplicate employee creation
+ 
 Deliverable:
-Test Data Strategy Document
+Negative Test Case Suite 
 
-Step 11 – Define Test Deliverables
-Teams must define all project outputs.
+Activity Part 6 – Data-Driven Test Case Design
+Each test case must include:
+Valid data set
+Invalid data set
+Edge case data
 Examples:
-Test Plan
-Test Cases
-RTM  
-Defect Reports
-Execution Reports
-Closure Report
+Login Data:
+Valid: Admin / admin123
+Invalid: Admin / 12345
+Empty: blank fields
+ 
 Deliverable:
-Deliverables Matrix
+Test Data Linked Test Cases
+
+Activity Part 10 – Priority Assignment
+Each test case must be labeled:
+High Priority
+Core business functionality
+Medium Priority
+Important but not critical
+Low Priority
+UI/edge validations
+ 
+Deliverable:
+Prioritized Test Case Register

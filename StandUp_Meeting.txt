@@ -577,3 +577,105 @@ Stand Up Meeting: 22 June 2026
 
 7.Questions
 - None
+
+======================================================================================================================
+
+Stand Up Meeting: 23 June 2026
+
+1.Your Task for Yesterday
+- Me and my group we split the tasks we were refining, so I took part 4, 5, 9 and 10 for the first activity scenario.
+
+2.What You Managed to Complete
+- Phase 3 Scenario
+
+3.Outstanding Work Items
+- Just to finalise my work with my group and submit
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Attend today's lession if applicable
+- Finalizing our group work and simplifying our Test Case development data
+
+7.Questions
+- None
+
+======================================================================================================================
+
+Stand Up Meeting: 24 June 2026
+
+1.Your Task for Yesterday
+- Me and my group we split the tasks we were refining, so I took for the second activity scenario.
+
+2.What You Managed to Complete
+- Phase 3 scenario
+
+3.Outstanding Work Items
+- Just to finalise the second activity of Phase 3 with my group and submit
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Attend today's lession if applicable
+- Finish up the second activity and hopefully submit
+
+7.Questions
+- None
+
+======================================================================================================================
+
+Stand Up Meeting: 25 June 2026
+
+1.Your Task for Yesterday
+- Finishing up the Second activity for Phase 3.
+
+2.What You Managed to Complete
+- The entire Phase 3 Assignment and submitted
+
+3.Outstanding Work Items
+- N/A
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To continue working on other Phases 4 to 6 
+
+7.Questions
+- None
+
+======================================================================================================================
+
+Stand Up Meeting: 26 June 2026
+
+1.Your Task for Yesterday
+- I tried to continue Java programming.
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- N/A
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To review types of tesing, and Testing Techniques
+
+7.Questions
+- None

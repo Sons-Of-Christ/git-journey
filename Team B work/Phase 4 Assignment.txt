@@ -1,0 +1,209 @@
+STLC Activity – Test Environment Setup & Test Data Management (OrangeHRM Project)
+Activity Title
+Preparing the Test Environment for Execution – OrangeHRM QA Readiness Challenge
+ 
+Scenario
+You have been assigned as the QA team for a client who is preparing to release a new version of the:
+OrangeHRM
+Before testing can begin, the Project Manager has instructed your team to ensure that the entire testing environment is ready and that sufficient test data has been prepared.
+The development team has completed their work and is waiting for QA to confirm that the environment is ready for formal testing.
+Your team has one day to prepare everything required before testing starts.
+ 
+Activity Objective
+Your team must prove that the testing environment is ready by:
+Validating access to the application
+Verifying the environment
+Preparing all required test data
+Identifying environment risks
+Performing smoke tests
+Producing professional QA documentation
+At the end of the activity, your team must decide:
+"Is this environment ready for testing?"
+ 
+Team Structure
+Coordinates the activity
+Reviews deliverables
+Presents the final decision
+Browser validation
+Application access
+Navigation checks
+Creating valid data
+Creating invalid data
+Boundary data
+Identifying risks
+Recording issues
+Suggesting mitigation plans
+Preparing the automation environment
+Verifying tools and dependencies
+Recording findings
+Compiling reports
+Creating the final environment readiness report
+ 
+Activity Part 1 – Environment Discovery
+Explore the OrangeHRM application and answer:
+What is the URL?
+Is the application accessible?
+What browsers can access it?
+What credentials are available?
+What modules are visible after login?
+Deliverable
+Environment Discovery Report
+ 
+Activity Part 2 – Environment Validation Checklist
+Create a checklist to verify the environment.
+Check items such as:
+Application URL opens successfully
+Login page loads correctly
+Valid credentials work
+Dashboard loads
+Navigation menu is visible
+Pages load without errors
+Logout works
+Browser sessions remain stable
+Record the result for each item as:
+Pass  
+Fail  
+Not Applicable
+Deliverable
+Environment Validation Checklist
+ 
+Activity Part 3 – Browser Compatibility Check
+Test the application using different browsers (where available), such as:
+Google Chrome
+Microsoft Edge
+Mozilla Firefox
+For each browser verify:
+Login  
+Navigation  
+Search functionality
+Forms  
+Logout  
+Record any differences.
+Deliverable
+Browser Compatibility Report
+ 
+Activity Part 4 – Test Data Preparation
+Create test data for the following modules:
+Login
+Valid username/password
+Invalid username
+Invalid password
+Blank credentials
+Employee Management
+New employee names
+Duplicate employee details
+Missing mandatory information
+Leave
+Different leave dates
+Invalid leave requests
+Recruitment
+Candidate names
+Email addresses
+Phone numbers
+Create at least:
+20 valid records
+20 invalid records
+20 boundary/edge case records
+Deliverable
+Master Test Data Sheet
+ 
+Activity Part 5 – Boundary and Negative Data
+For selected input fields, identify:
+Minimum values
+Maximum values
+Empty values
+Special characters
+Invalid formats
+Example:
+Field
+	
+Boundary Test
+
+
+Username
+	
+1 character
+
+
+Password
+	
+Blank
+
+
+Employee Name
+	
+Maximum allowed characters
+Deliverable
+Boundary Test Data Matrix
+ 
+Activity Part 6 – Smoke Testing
+Perform a quick smoke test to confirm the application is stable enough for formal testing.
+Minimum smoke tests:
+Login  
+Logout  
+Search employee
+Add employee (if permitted)
+Open Leave module
+Open Recruitment module
+Record:
+Test performed
+Expected result
+Actual result
+Status  
+Deliverable
+Smoke Test Report
+ 
+Activity Part 7 – Environment Risk Assessment
+Identify risks that could delay or affect testing.
+Examples:
+Application unavailable
+Slow internet
+Incorrect credentials
+Browser incompatibility
+Missing test data
+User permissions
+For each risk include:
+Description  
+Impact  
+Likelihood  
+Mitigation plan
+Deliverable
+Environment Risk Register
+ 
+Activity Part 8 – Automation Readiness Check
+Confirm that the automation environment is ready.
+Verify:
+Java installed
+Eclipse IDE or IntelliJ IDEA installed
+Selenium libraries added
+TestNG configured
+Browser drivers available
+A sample automation script runs successfully
+Deliverable
+Automation Readiness Report
+ 
+Activity Part 9 – Go / No-Go Meeting
+Each team presents its findings.
+The QA Manager asks:
+Is the environment ready?
+What issues were found?
+What risks remain?
+What must be fixed before testing begins?
+The team must decide:
+Go – Environment is ready for testing.
+Go with Conditions – Testing can begin but certain issues must be monitored.
+No-Go – Testing should not begin until critical issues are resolved.
+Deliverable
+Environment Readiness Decision Report
+ 
+Activity Deliverables
+Each team must submit:
+Environment Discovery Report
+Environment Validation Checklist
+Browser Compatibility Report
+Master Test Data Sheet
+Boundary Test Data Matrix
+Smoke Test Report
+Environment Risk Register
+Automation Readiness Report
+Environment Readiness Decision Report

@@ -1,0 +1,212 @@
+STLC  Activity – Test Closure (OrangeHRM Project)
+Activity Title
+OrangeHRM QA Test Closure & Release Readiness Challenge
+ 
+Scenario
+Your QA team has successfully completed the following phases of the Software Testing Life Cycle (STLC):
+Requirement Analysis
+Test Planning
+Test Scenario Creation
+Test Case Development
+Test Environment Setup & Test Data Management
+Test Execution
+Testing has now concluded for the:
+OrangeHRM
+The Project Manager has requested that the QA team perform Test Closure Activities before the application can be considered for production deployment.
+Your responsibility is to evaluate the entire testing effort, measure its effectiveness, document the outcomes, and provide a final recommendation on whether the application is ready for release.
+ 
+Activity Objective
+Each team must:
+Verify that all planned testing activities have been completed.
+Analyse testing results and metrics.
+Review defects and identify remaining risks.
+Prepare the final QA documentation.
+Conduct a lessons learned session.
+Present a release recommendation to stakeholders.
+Responsible for:
+Coordinating closure activities
+Reviewing all deliverables
+Presenting the final recommendation
+Test execution metrics
+Dashboards  
+Final statistics
+Defect summaries
+Root cause analysis
+Severity trends
+Test Summary Report
+Closure Report
+Archiving documentation
+Retrospective meeting
+Improvement recommendations
+Executive presentation
+Final sign-off meeting
+ 
+Activity Part 1 – Test Completion Review
+Review the Test Plan and verify:
+Were all planned test cases executed?
+Were any test cases skipped?
+Were any blocked?
+Were all critical business processes tested?
+Create a summary of the testing effort.
+Deliverable
+Test Completion Report
+ 
+Activity Part 2 – Test Metrics Analysis
+Calculate and present:
+Total Test Cases
+Executed Test Cases
+Passed  
+Failed  
+Blocked  
+Not Executed
+Pass Percentage
+Fail Percentage
+Execution Percentage
+Present the information using tables and charts.
+Deliverable
+QA Metrics Dashboard
+ 
+Activity Part 3 – Defect Analysis
+Analyse all defects raised during testing.
+Include:
+Total defects
+Open defects
+Closed defects
+Deferred defects
+Rejected defects
+Defects by severity
+Defects by module
+Identify:
+Which module had the highest number of defects?
+Which defects present the greatest business risk?
+Deliverable
+Defect Analysis Report
+ 
+Activity Part 4 – Root Cause Analysis
+Select the five most significant defects and perform a Root Cause Analysis.
+Use techniques such as:
+5 Whys
+Fishbone (Cause-and-Effect) Diagram
+For each defect identify:
+Root cause
+Impact  
+Prevention strategy
+Deliverable
+Root Cause Analysis Document
+ 
+Activity Part 5 – Requirement Coverage Review
+Using the Requirement Traceability Matrix (RTM), verify:
+Requirements tested
+Requirements not tested
+Partially tested requirements
+Calculate overall requirement coverage.
+Deliverable
+Requirement Coverage Report
+ 
+Activity Part 6 – Risk Assessment
+Review any remaining risks.
+Examples:
+Open High-severity defects
+Untested functionality
+Environment limitations
+Security concerns
+For each risk include:
+Description  
+Probability  
+Business impact
+Mitigation plan
+Deliverable
+Residual Risk Register
+ 
+Activity Part 7 – Lessons Learned Workshop
+Hold a retrospective meeting and discuss:
+What worked well?
+What challenges were experienced?
+Which testing practices should continue?
+Which practices should improve?
+What would the team do differently next time?
+Deliverable
+Lessons Learned Report
+ 
+Activity Part 8 – Test Asset Archive
+Prepare all project artefacts for archiving.
+Ensure the following are organised and stored:
+Requirements  
+Test Plan
+Test Scenarios
+Test Cases
+Test Data
+Execution Logs
+Defect Log
+Evidence (Screenshots)
+Reports  
+Create an archive checklist confirming everything has been captured.
+Deliverable
+Test Asset Archive Register
+ 
+Activity Part 9 – Test Summary Report
+Prepare a professional Test Summary Report including:
+Project Overview
+Scope  
+Testing Performed
+Test Results
+Metrics  
+Defect Summary
+Risks  
+Lessons Learned
+Recommendations  
+Final QA Conclusion
+Deliverable
+Test Summary Report
+ 
+Activity Part 10 – Release Readiness Assessment
+Review all available information and decide whether the application should be:
+Released  
+Released with Conditions
+Delayed  
+Support your recommendation with:
+Test metrics
+Defect analysis
+Risk assessment
+Requirement coverage
+Deliverable
+Release Readiness Report
+ 
+Activity Part 11 – Executive Stakeholder Presentation
+Each team presents its findings to a review panel.
+Presentation topics:
+Testing objectives
+Testing completed
+Quality metrics
+Defects  
+Risks  
+Lessons learned
+Final recommendation
+Presentation time:
+20–30 minutes
+Deliverable
+Executive Presentation
+ 
+Final Executive Challenge
+Isaac presents the following scenario:
+The client has scheduled a live demonstration tomorrow morning. Testing achieved 94% requirement coverage. One High-severity defect and eight Medium-severity defects remain open. The Product Owner wants to release immediately to meet the deadline.
+Each team has 20 minutes to discuss and present:
+Would you approve the release?
+What evidence supports your decision?
+What risks should stakeholders understand?
+What mitigation strategies could reduce those risks?
+What would you document in the final QA recommendation?
+ 
+Deliverables Checklist
+Each team must submit:
+Test Completion Report
+QA Metrics Dashboard
+Defect Analysis Report
+Root Cause Analysis Document
+Requirement Coverage Report
+Residual Risk Register
+Lessons Learned Report
+Test Asset Archive Register
+Test Summary Report
+Release Readiness Report
+Executive Presentation

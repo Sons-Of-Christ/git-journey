@@ -1,0 +1,8 @@
+{
+  "name": "Masperv Central Dashboard",
+  "description": "A centralized executive control dashboard for Company Masperv to manage and track business operations, companies, shopping malls, employees, and operational categories with integrated AI business consulting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
