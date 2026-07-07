@@ -1,0 +1,234 @@
+Parts 6, 7 and 10
+
+STLC Activity – Test Execution (OrangeHRM Project)
+Activity Title
+OrangeHRM QA Test Execution Challenge – Validate, Execute, Report
+ 
+Scenario
+Your QA team has completed the following phases:
+Requirement Analysis
+Test Planning
+Test Scenario Creation
+Test Case Development
+Test Environment Setup & Test Data Management
+The Project Manager has now authorized the team to begin formal testing of the:
+OrangeHRM
+System under test:
+OrangeHRM Demo Site
+The development team believes the application is ready for production. Your responsibility is to verify whether that is true through structured test execution.
+ 
+Activity Objective
+Each team must:
+Execute their assigned test cases.
+Record accurate test results.
+Capture evidence for every execution.
+Log defects professionally.
+Perform retesting after simulated fixes.
+Conduct regression testing.
+Report execution progress daily.
+Recommend whether the application is ready for release.
+Responsibilities:
+Coordinate testing activities.
+Lead daily stand-ups.
+Monitor progress.
+Approve final reports.
+Login  
+Dashboard  
+Admin  
+PIM  
+Leave  
+Time  
+Recruitment  
+Performance  
+My Info
+Review defect quality.
+Maintain the defect log.
+Prepare defect metrics.
+ 
+Activity Part 1 – Test Execution Kick-Off Meeting
+Each team will hold a short meeting to review:
+Assigned modules
+Test cases
+Test data
+Risks  
+Execution timeline
+Team responsibilities
+Deliverable
+Kick-Off Meeting Minutes
+ 
+Activity Part 2 – Test Case Execution
+Execute all assigned test cases.
+For every test case, record:
+Test Case ID
+Module  
+Tester Name
+Date Executed
+Result (Pass / Fail / Blocked / Not Executed)
+Comments  
+Deliverable
+Test Execution Log
+]
+Activity Part 3 – Evidence Collection
+For every executed test case:
+Capture:
+Screenshot(s)  
+Date and time
+Browser used
+Any relevant notes
+For failed test cases, ensure the screenshot clearly shows the issue.
+Deliverable
+Execution Evidence Folder
+ 
+Activity Part 4 – Defect Identification
+Whenever a test case fails:
+Create a defect report containing:
+Defect ID
+Module  
+Defect title
+Description  
+Steps to reproduce
+Expected result
+Actual result
+Severity  
+Priority  
+Screenshot reference
+Deliverable
+Defect Log
+ 
+Activity Part 5 – Defect Review and Triage
+Review all logged defects.
+For each defect decide whether it should be:
+Fixed immediately
+Deferred  
+Rejected  
+Marked as a duplicate
+Justify every decision.
+Deliverable
+Defect Triage Report
+ 
+Activity Part 6 – Daily Status Meeting
+At the end of each testing day, every team presents:
+Number of test cases executed
+Number passed
+Number failed
+Number blocked
+Defects found
+Current risks
+Planned work for the next day
+Deliverable
+Daily Status Report
+ 
+Activity Part 7 – Test Execution Dashboard
+Create a dashboard showing:
+Total test cases
+Executed  
+Passed  
+Failed  
+Blocked  
+Not executed
+Also include:
+Pass rate
+Fail rate
+Execution progress (%)
+Deliverable
+Execution Dashboard
+ 
+Activity Part 8 – Simulated Defect Fix Verification (Retesting)
+The facilitator (QA Manager) will select a number of logged defects and announce:
+"The development team has fixed these defects."
+The responsible team must:
+Execute the original failed test case again.
+Verify whether the issue has been resolved.
+Update the defect status as:
+Fixed  
+Reopened  
+Cannot Reproduce
+Deliverable
+Retesting Report
+ 
+Activity Part 9 – Regression Testing
+After retesting, perform regression testing on related functionality.
+Example:
+If the Login module was fixed, verify:
+Login  
+Logout  
+Session timeout
+Password validation
+Dashboard access
+Document whether any existing functionality has been affected.
+Deliverable
+Regression Testing Report
+ 
+Activity Part 10 – Coverage Review
+Review execution against the original requirements.
+Answer:
+Which requirements have been tested?
+Which remain untested?
+Which modules have the highest defect count?
+Are there any critical business flows still at risk?
+Deliverable
+Test Coverage Report
+ 
+Activity Part 11 – Release Readiness Meeting
+Each team presents:
+Execution summary
+Defects identified
+Open defects
+Risks  
+Coverage achieved
+The QA Manager asks:
+Is the application ready for release?
+Why?  
+What risks remain?
+What actions are still required?
+The team must recommend:
+Release  
+Release with Conditions
+Do Not Release
+Support the recommendation with evidence.
+Deliverable
+Release Recommendation Report
+ 
+Unexpected Challenges (Facilitator Controlled)
+During execution, introduce one or more of the following situations:
+Challenge 1
+A critical defect is discovered in the Login module.
+How does this affect:
+Test priorities?
+Other modules?
+Release readiness?
+ 
+Challenge 2
+The Leave module becomes unavailable for one hour.
+How will the team:
+Adjust the schedule?
+Continue testing?
+Communicate the issue?
+ 
+Challenge 3
+Only four hours remain before the testing deadline.
+The team must decide:
+Which test cases are mandatory?
+Which can be postponed?
+What is the business risk?
+ 
+Challenge 4
+A stakeholder requests testing of a new feature that was not included in the original scope.
+The team must determine:
+Whether it should be tested now.
+How it affects the timeline.
+Whether the Test Plan needs updating.
+ 
+Deliverables
+Each team must submit:
+Kick-Off Meeting Minutes
+Test Execution Log
+Execution Evidence Folder
+Defect Log
+Defect Triage Report
+Daily Status Reports
+Test Execution Dashboard
+Retesting Report
+Regression Testing Report
+Test Coverage Report
+Release Recommendation Report 

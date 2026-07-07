@@ -679,3 +679,184 @@ Stand Up Meeting: 26 June 2026
 
 7.Questions
 - None
+
+======================================================================================================================
+
+Stand Up Meeting: 29 June 2026
+
+1.Your Task for Yesterday
+- My task for yesterday was to tackle Phase 4 of the assignment.
+
+2.What You Managed to Complete
+- Parts 2 and 4 of phase 4
+
+3.Outstanding Work Items
+- Phase 4, 5 and 6
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Finishing up Phase 4 and 5 today
+
+7.Questions
+- None
+
+======================================================================================================================
+
+Stand Up Meeting: 30 June 2026
+
+1.Your Task for Yesterday
+- My task for yesterday was to finish my parts for Phase 4 & 8 of the assignment.
+
+2.What You Managed to Complete
+- Both Phase 4 & 5
+
+3.Outstanding Work Items
+- Phase 6 is the one that's left
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Finishing up my parts of Phase 6
+- Finalizing all Phases 4, 5 and 6
+
+7.Questions
+- None
+
+======================================================================================================================
+
+Stand Up Meeting: 01 July 2026
+
+1.Your Task for Yesterday
+- My task for yesterday was to finish my parts for Phase 5 & 6 of the assignment.
+
+2.What You Managed to Complete
+- all phases successfully
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Review my STLC notes from guru99
+
+7.Questions
+- None
+
+======================================================================================================================
+
+Stand Up Meeting: 02 July 2026
+
+1.Your Task for Yesterday
+- Reviewing documents sent by Isaac
+- Reviewing my Testing Types notes
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Review my STLC Test Management and Control notes from guru99
+- 
+
+7.Questions
+- None
+
+======================================================================================================================
+
+Stand Up Meeting: 03 July 2026
+
+1.Your Task for Yesterday
+- I had to go fetch my passport
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Recap the video from the STLC lesson yesterday
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 06 July 2026
+
+1.Your Task for Yesterday
+- Just practiced Java concepts using Data types with the Scanner function of Java
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Learning relevant automation concepts given by Isaac
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 07 July 2026
+
+1.Your Task for Yesterday
+- I was reviewing the ParaBank assignment, and starting the requirement analysis
+- I was trying to code Java in Eclipse IDE
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Is to attempt the test planning and Test Case Development
+- Taking a look at selenium concepts
+
+7.Questions
+- None
+

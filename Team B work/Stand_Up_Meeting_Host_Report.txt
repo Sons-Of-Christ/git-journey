@@ -1,8 +1,8 @@
-**************************************************************************************************************************************************************************
+*******************************************************************************************
 			Stand-Up Meeting Report
-**************************************************************************************************************************************************************************
+*******************************************************************************************
  
-Date : 17 June 2026
+Date : 30 June 2026
 Time: : 10:00
 Attendees : All team members were present and attended the meeting remotely.
 Host: Kamogelo Sekhaolelo
@@ -14,15 +14,14 @@ Issues Raised
 The following issues were raised by team members:
 
 Kamogelo: Speaker and battery doesn't charge to a 100% and bearly lasts an 1+ hour
-Nyeleti: None
-Luthando: None
-Katleho: Katleho still has an issue with the domiain and is currently using her personal laptop
+Nyeleti: Laptop charger is damaged and battery
+Luthando: Screen goes blank sometimes.
+Katleho: None
 Zandile: None
 Bontle: None
 Bonisiwe: None
 Nomandla: None
 Adivaho: None
-Tsapalame: None
  
 2. Daily Reports
  
@@ -30,12 +29,10 @@ Reminder! to everyone.
 
 Please submit your daily reports before 5pm today.
 
-Phase 2 Test planning Assignment is due tomorrow 18 June at before 10am
+Phases 4, 5 and 6 of STLC Assignments are due today at before 5pm end of business day
 
-A dedicated folder has been created on SharePoint for the submission and storage of daily reports.
+A folder has been created on SharePoint for the submission of our daily reports.
 
-Members are requested to upload their reports to the designated SharePoint folder for 17 June Wednesday. 
- 
 The meeting concluded and all blockers and issues are noted above.
 
 ************************************ Thank-You **************************************
