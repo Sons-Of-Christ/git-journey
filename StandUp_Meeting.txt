@@ -860,3 +860,87 @@ Stand Up Meeting: 07 July 2026
 7.Questions
 - None
 
+================================================================================================
+
+Stand Up Meeting: 08 July 2026
+
+1.Your Task for Yesterday
+- I was reviewing the task Isaac gave us yesterday and the Selenium Guru99 notes
+- I was trying to code Java in Eclipse IDE
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Attempting the automation assignment Isaac gave us
+- Taking a look at Guru99 selenium lessons
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 09 July 2026
+
+1.Your Task for Yesterday
+- Reading Test automation notes Isaac gave us
+- Continuing my lessons on automation in Guru99
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- Internet is down for wifi in my area, I will use my phone to join the lessons
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Watching the record lesson yesterday, because I joined late,
+- Attempting the automation assignment Isaac gave us
+- Taking a look at Guru99 selenium lessons
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 10 July 2026
+
+1.Your Task for Yesterday
+- Reading Test automation notes Isaac gave us
+- Continuing my lessons on automation in Guru99 on Webdrivers
+- Java operators
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Continuing basic understanding of Java statements and iterations
+- Continuing Guru99 notes on TestNG and Frameworks
+- Attending lessons on STLC automation
+
+7.Questions
+- None
+
