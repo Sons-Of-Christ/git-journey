@@ -944,3 +944,112 @@ Stand Up Meeting: 10 July 2026
 7.Questions
 - None
 
+================================================================================================
+
+Stand Up Meeting: 13 July 2026
+
+1.Your Task for Yesterday
+- Doing the task Isaac gave us
+
+2.What You Managed to Complete
+- Completed the automation task
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Continuing basic understanding of Java statements and iterations
+- Continuing Guru99 notes on TestNG and Frameworks
+- Attending lessons on STLC automation
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 14 July 2026
+
+1.Your Task for Yesterday
+- Submitted the activity.
+- Review my automation notes, on waits, elements and locators
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Continuing Guru99 notes on TestNG and Frameworks
+- Attending lessons on STLC automation
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 15 July 2026
+
+1.Your Task for Yesterday
+- We did findElement() with radiobuttons and checkboxes the activity.
+- learning how to do login validation and locators with Dropdown menu web elements
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Continuing Guru99 Webdrivers lessons
+- Hopefully moving on to login validations on other demo sites Isaac sent
+- Checking out TestNG concepts on Guru99
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 16 July 2026
+
+1.Your Task for Yesterday
+- Practiced Java Scanner functions, and modules and operators.
+- Learned the Selenium Guru99 lessons 02 to 05 on webdrivers
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- None
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Finishing up webdriver lessons on Gurn99 from lessons 06 to 20
+- Continue my personal basic Java lessons
+
+7.Questions
+- None
+
