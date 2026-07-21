@@ -1053,3 +1053,57 @@ Stand Up Meeting: 16 July 2026
 7.Questions
 - None
 
+================================================================================================
+
+Stand Up Meeting: 17 July 2026
+
+1.Your Task for Yesterday
+- Practiced Java Switch Cases, Nested if's.
+- Learning how to do Arrays, using sorts, get length.
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- Mercury Tours activity
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Attempt Phases 2 to 7 of the assignment
+- Continue my personal basic Java lessons on For loops, and procedures and classes
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 20 July 2026
+
+1.Your Task for Yesterday
+- Was attempting Phase 1 to 5 of the activity
+- I went through on 20 webdriver lessons from Guru99
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- Mercury Tours activity
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Attempt Phases 5 to 7 of the assignment
+- Continuing my Java automation lessons on Guru99 and Youtube
+
+7.Questions
+- None
+
