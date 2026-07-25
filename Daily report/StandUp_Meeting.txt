@@ -1107,3 +1107,86 @@ Stand Up Meeting: 20 July 2026
 7.Questions
 - None
 
+================================================================================================
+
+Stand Up Meeting: 22 July 2026
+
+1.Your Task for Yesterday
+- I was reviewing and practicing my notes for Webdrivers like Elements, locators and CSS locators on Youtube
+- I went through on 20 webdriver lessons from Guru99
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- Parabank Assignment
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To do the Activities Isaac gave us from Module 13 to 19
+- Continuing my Java automation lessons on Guru99 and Youtube
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 23 July 2026
+
+1.Your Task for Yesterday
+- I was busy with Module 13 – Mouse Click & Keyboard Events (Actions Class)
+   Website
+- Module 14 – Upload & Download Files
+- Module 16 – Alerts & Popups
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- Parabank Assignment
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To do the Activities Isaac gave us from Module 17 & 19
+- To finish Phases 1 and 2 of the Parabank assignment
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 24 July 2026
+
+1.Your Task for Yesterday
+- I was doing Module 17 Web Tables
+- Module 19 – Tooltip Verification
+- Phase 1 Requirement analysis
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- Parabank Assignment
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- To finish Phases 1 and 2 of the Parabank assignment
+
+7.Questions
+- None
+
