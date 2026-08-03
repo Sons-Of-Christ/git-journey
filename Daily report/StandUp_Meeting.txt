@@ -1165,7 +1165,7 @@ Stand Up Meeting: 23 July 2026
 
 ================================================================================================
 
-Stand Up Meeting: 24 July 2026
+Stand Up Meeting: 27 July 2026
 
 1.Your Task for Yesterday
 - Phase 1, 2 , 3 and 4 of Parabank STLC
@@ -1189,3 +1189,92 @@ Stand Up Meeting: 24 July 2026
 7.Questions
 - None
 
+================================================================================================
+
+Stand Up Meeting: 28 July 2026
+
+1.Your Task for Yesterday
+- Doing Phase 5 the evidence and folder naming
+- Continue Module 17
+
+2.What You Managed to Complete
+- Phases 1 - 4
+
+3.Outstanding Work Items
+- Phases 5 and 6 for Parabank need refinement
+- Modules 17 & 19 
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Finish Phase 5 and move on to 6
+- Finish Modules 17 Web tables and Module 19 Tooltip verification
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 30 July 2026
+
+1.Your Task for Yesterday
+- WebDriver Methods
+- Finished module 19 
+- did testNG
+
+2.What You Managed to Complete
+ I'm done with the Parabank
+- N/A
+
+3.Outstanding Work Items
+- N/A
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day
+- Prepare for my Presentation
+- Review how to find all/broken links
+- Move on to TestNG projects
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 31 July 2026
+
+1.Your Task for Yesterday
+- Module 22 TestNG Framework Tutorial & Hands-on Implementation
+- Configured TestNG dependencies and plugins within Eclipse IDE
+- Created data-driven automated tests using @DataProvider to pass multiple test data sets into test methods dynamically.
+
+2.What You Managed to Complete
+ I'm done with the Parabank
+- N/A
+
+3.Outstanding Work Items
+- N/A
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day/Weekend
+- Prepare for my Presentation 
+- Module 23 – TestNG Groups: Include, Exclude with Example – Selenium Tutorial 
+- Module 24 – TestNG @Test Priority in Selenium 
+- Module 25 – Parallel Execution in Selenium: Session Handling & TestNG Dependency 
+- Module 26 – TestNG: How to Run Multiple Test Suites in Selenium 
+
+7.Questions
+- None
