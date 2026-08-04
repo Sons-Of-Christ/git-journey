@@ -1278,3 +1278,33 @@ Stand Up Meeting: 31 July 2026
 
 7.Questions
 - None
+
+================================================================================================
+
+Stand Up Meeting: 03 August 2026
+
+1.Your Task for Yesterday
+- Module 22 TestNG Framework Tutorial & Hands-on Implementation
+- Module 23 TestNG Groups: Include, Exclude with Example – Selenium Tutorial
+- Module 24 TestNG @Test Priority in Selenium
+
+2.What You Managed to Complete
+- N/A
+
+3.Outstanding Work Items
+- N/A
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day/Weekend
+- Submit STLC Parabank Assignment before end of business day
+- Module 25 – Parallel Execution in Selenium: Session Handling & TestNG Dependency 
+- Module 26 – TestNG: How to Run Multiple Test Suites in Selenium 
+
+7.Questions
+- None
+
