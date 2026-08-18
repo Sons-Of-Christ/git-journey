@@ -1308,3 +1308,229 @@ Stand Up Meeting: 03 August 2026
 7.Questions
 - None
 
+================================================================================================
+
+Stand Up Meeting: 05 August 2026
+
+1.Your Task for Yesterday
+- Module 22 TestNG Annotations, asserts, Parameters, and how to use multiple test case annotations
+- Module 23 TestNG Groups: Include, Exclude with Example – Selenium Tutorial
+- Module 24 TestNG @Test Priority in Selenium
+
+2.What You Managed to Complete
+- Basic use of Test Annotations, and their parameters
+
+3.Outstanding Work Items
+- Revise and Practice code for TestNG Groups, and TestNG Priorities module 24 P
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day/Weekend
+- Review of TestNG Groups, TestNG Priorities
+- Module 25 – Parallel Execution in Selenium: Session Handling & TestNG Dependency
+- Module 26 – TestNG: How to Run Multiple Test Suites in Selenium
+
+7.Questions
+- None
+
+================================================================================================
+
+Stand Up Meeting: 06 August 2026
+
+1.Your Task for Yesterday
+- Module 23 TestNG Groups: Include, Exclude, they use XML tags to separate or include test suites
+- I attempted the dependsOnGroups Orderdere execution concept from guru99
+- I managed to execute the example code for groups in Eclipse IDE
+- Module 24 TestNG @Test Priority in Selenium
+
+2.What You Managed to Complete
+- Basic use of Test Annotations, and their parameters
+
+3.Outstanding Work Items
+- Module 25 – Parallel Execution in Selenium: Session Handling & TestNG Dependency
+- Module 26 – TestNG: How to Run Multiple Test Suites in Selenium 
+
+4.Your Blockers
+- My Eclipse IDE console, tells me it detected version 7.11.0 and refuses to print my results
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day/Weekend
+- Fix/Update my IDE TestNG framework
+- Finish my outstanding work
+- Move on to Module 27 – TestNG Listeners in Selenium: ITestListener & ITestResult Example 
+- Module 28– How to Execute Failed Test Cases in TestNG: Selenium WebDriver 
+
+7.Questions
+- How do I update my TestNG framework?
+
+==================================================================================================
+
+Stand Up Meeting: 07 August 2026
+
+1.Your Task for Yesterday
+I managed to complete all remaining topics in TestNG, Modules 25 to 30 as specified by the ModuleTracker
+
+2.What You Managed to Complete
+- Modules 25 to 30
+
+3.Outstanding Work Items
+My duty now is to finish all exercises given to use by Isaac Thursday 06.
+
+4.Your Blockers
+N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day/Weekend
+Today and over the weekend my task is to complete all activities given to use yesterday from Modules 22 to 30 of TestNG using the OrangeHRM demo site.
+I will later move on to Frameworks in Selenium, which has only 4 topics.
+
+7.Questions
+N/A
+
+==================================================================================================
+
+Stand Up Meeting: 11 August 2026
+
+1.Your Task for Yesterday
+- I did the modules 22 to 24 activities for OrangeHRM using specified TestNG concepts in each code/file.
+- I also managed to go through Module 31 – Page Object Model (POM) & Page Factory, I have a basic comprehension of the topic discussed and made my notes.
+
+2.What You Managed to Complete
+- Modules 22 to 24 Activities.
+
+3.Outstanding Work Items
+-  I have to complete modules 25 to 30 for the TestNG OrangeHRM demo activities.
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day/Weekend
+- My task for today is to start Module 25 – Parallel Execution & Dependencies acivity, and also read through the concepts of Module 32 – Data provider & TestNG XML (Frameworks Topic)
+
+7.Questions
+- N/A
+
+==================================================================================================
+
+Stand Up Meeting: 12 August 2026
+
+1.Your Task for Yesterday
+- I was able to start with Module 25 and 26 on Eclipse IDE.
+- I also watched the videos on POM and TestNG concepts from the link Isaac gave us, I made personal study notes, to simplify concepts and my understanding of these concepts.
+
+2.What You Managed to Complete
+- Module 25 – Parallel Execution & Dependencies Activity.
+
+3.Outstanding Work Items
+-  I have to complete modules 26 to 30 for the TestNG OrangeHRM demo activities.
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day/Weekend
+- My task for today is to continue with my outstanding module 26 task and move on to module 27 – TestNG Listeners Activity.
+- I also need to read through the concepts of Module 32 – Data provider & TestNG XML (Frameworks Topic)based on the module tracker.
+
+7.Questions
+- N/A
+
+==================================================================================================
+
+Stand Up Meeting: 13 August 2026
+
+1.Your Task for Yesterday
+- I continued working on Modules 26 – Run Multiple Test Suites and 27 – TestNG Listeners on Eclipse IDE.
+- I also read through Module 32 – Data provider & TestNG XML: Parameterization in Selenium.
+
+2.What You Managed to Complete
+- Module 26 and Module 27 activities.
+
+3.Outstanding Work Items
+-  I have to complete modules 28 to 30 for the TestNG OrangeHRM demo activities.
+- I have to read through Module 33 – Read & Write Data from Excel File in Selenium Web driver: POI & JXL.
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day/Weekend
+- My task for today is to continue with my outstanding modules 28 Execute Failed Test Cases and 29 TestNG Report Generation Activities.
+- I also need to read through the concepts of Module 33 – Read & Write Data from Excel File based on the module tracker.
+
+7.Questions
+- N/A
+
+==================================================================================================
+
+Stand Up Meeting: 14 August 2026
+
+1.Your Task for Yesterday
+- I continued working on Module 28 – Execute Failed Test Cases and Module 29 – TestNG Report Generation on Eclipse IDE.
+- I also read through Module 33 – Data provider & TestNG XML: Parameterization in Selenium.
+
+2.What You Managed to Complete
+- Module 28 and Module 29 activities.
+
+3.Outstanding Work Items
+-  My remaining task is module 30 for the TestNG OrangeHRM demo activities.
+- I still need to continue reading through Module 33 – Read & Write Data from Excel File in Selenium Web driver: POI & JXL.
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day/Weekend
+- My task for today is to continue with my outstanding Module 30 – Custom Reports, PDF & Email Reports activity.
+- I also need to read through the concepts of Module 33 – Read & Write Data from Excel File based on the module tracker.
+- Module 34 – Maven & Jenkins Integration with Selenium: Complete Tutorial  (Focus Maven)
+
+7.Questions
+- N/A
+
+==================================================================================================
+
+Stand Up Meeting: 17 August 2026
+
+1.Your Task for Yesterday
+- I continued working on Module 30 on Eclipse IDE.
+- I also read through Module 34 – Maven & Jenkins Integration with Selenium: Complete Tutorial (Focus Maven).
+- I watched YouTube videos for TestNG revision.
+
+2.What You Managed to Complete
+-Reading through the contents of Module 34 .
+
+3.Outstanding Work Items
+-  My remaining task is module 30 for the TestNG OrangeHRM demo activities.
+
+4.Your Blockers
+- N/A
+
+5.Assistance Required
+- No Assistance required for now.
+
+6.Tasks for the Current Day/Weekend
+- My task for today is to continue with my outstanding Module 30 – Custom Reports, PDF & Email Reports activity.
+- I also need to prepare myself for Parabank presentation.
+- Revise TestNG and Framework concepts again
+
+7.Questions
+- N/A
+
